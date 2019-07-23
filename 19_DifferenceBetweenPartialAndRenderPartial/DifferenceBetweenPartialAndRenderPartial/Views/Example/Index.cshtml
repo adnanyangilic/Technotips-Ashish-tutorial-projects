@@ -1,0 +1,47 @@
+﻿<!--Bootstrap stílus implementálása-->
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<!--JQuery Scriptek implementálása-->
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+<h2 align="center">Index</h2>
+
+<!--Dolgozó adatainak megjelenítése-->
+<div class="container" style="width:40%;margin-top:2%">
+    <h3>Html.Partial és Html.RenderPartial közötti különbség</h3>
+    <h2>Html.Partial</h2>
+
+    <!--Html.Partial() segítségével PartialView meghívása
+        Szintaksziks (PartialViewName.cshtml, Objektum Model vagy akár ViewData)
+        A visszatérési érték egy MVC HTML String és egy Speciális HTML Rendererrel
+        Dekódolja-->
+    @Html.Partial("PartialViewExample")
+
+    @{ 
+        /// Tároljuk, hogy a Html.Partial() függvény milyen visszatérési értékkel tér vissza
+        string myPartialViewString = Html.Partial("PartialViewExample").ToHtmlString();
+    }
+
+    <h4>Amit a Html.Partial() függvény visszatérít:</h4> @myPartialViewString
+
+    <h2>Html.RenderPartial</h2>
+
+    <!--Szintakszis (PartialViewName.cshtml, )
+        A módszer eredményét közvetlenül egy HTTP response streamre kell írni,
+        ez azt jelenti, hogy ugyan azt a TextWriter objektumot használja, amelyet az aktuális
+        "Parent" weboldal.
+        Visszatérési értéke nincs, ez egy Void típusú eljárás.
+        A metódus sokkal gyorsabb mint a Partial metódus, mivel közvetlenül ír a "response stream"
+        ("válaszfolyam")-ra amely gyorsabbá teszi az eljárást-->
+    @{
+        Html.RenderPartial("PartialViewExample");
+    }
+
+
+</div>

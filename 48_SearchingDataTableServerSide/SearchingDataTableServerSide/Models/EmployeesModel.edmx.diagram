@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c72fbbe51d664f5cbf2f9e35e06f3746" Name="Diagram1">
+        <EntityTypeShape EntityType="EmployeesDBModel.Country" Width="1.5" PointX="5.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeesDBModel.Department" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeesDBModel.Employee" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeesDBModel.ImageStore" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeesDBModel.Site" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeesDBModel.SiteUser" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeesDBModel.State" Width="1.5" PointX="8" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeesDBModel.UserRole" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <AssociationConnector Association="EmployeesDBModel.FK_State_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeesDBModel.FK__Employee__Depart__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeesDBModel.FK__Sites__EmployeeI__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeesDBModel.FK_SiteUser_UserRole" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

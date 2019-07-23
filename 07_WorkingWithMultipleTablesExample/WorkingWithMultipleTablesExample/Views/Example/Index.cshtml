@@ -1,0 +1,39 @@
+﻿<!--Bootstrap stílus implementálása-->
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+@model IEnumerable<WorkingWithMultipleTablesExample.Models.ViewModels.EmployeeViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+<h2>Index</h2>
+
+<!--A Modell-ben található adatok megjelenítése-->
+<div class="container" style="width:60%;margin-top:2%">
+    @if (Model != null)
+    {
+       <table class="table table-striped">
+           <!--Fejléc adatok definiálása-->
+           <tr>
+               <th>ID</th>
+               <th>Név</th>
+               <th>Osztály név</th>
+               <th>Cím</th>
+           </tr>
+           <!--Adatok bejárása és kiírása-->
+           <tbody>
+               @foreach(var item in Model)
+               {
+                   <tr>
+                       <td>@item.EmployeeID</td>
+                       <td>@item.Name</td>
+                       <td>@item.DepartmentName</td>
+                       <td>@item.Adress</td>
+                   </tr>
+               }
+           </tbody>
+       </table>
+    }
+</div>

@@ -1,0 +1,189 @@
+﻿<!--Modell definiálása-->
+@model RefreshDataTable.Models.ViewModels.EmployeeViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<!--Egy sorban 4 képet jelenítünk meg egymás mellett, melyek reszponzívan jelennek meg.
+    Egy sorban a col-md-x összege nem haladhatja meg a 12-őt. Összesen 12 kell hogy legyen
+    az összege, ennek megfelelően fogja feldarabolni a képernyőt-->
+<div class="panel panel-body">
+    <div class="col-md-3">
+        <img class="img-responsive" src="~/Content/Images/index.jpg" />
+    </div>
+    <div class="col-md-3">
+        <img class="img-responsive" src="~/Content/Images/index.jpg" />
+    </div>
+    <div class="col-md-3">
+        <img class="img-responsive" src="~/Content/Images/index.jpg" />
+    </div>
+    <div class="col-md-3">
+        <img class="img-responsive" src="~/Content/Images/index.jpg" />
+    </div>
+</div>
+
+<div class="panel panel-body">
+    <!--Oldalsó menüsáv elkészítése.-->
+    <div class="col-md-3">
+        @{ Html.RenderAction("SideMenu", "Example");}
+    </div>
+    <!--Tartalom elkészítése-->
+    <div class="col-md-9">
+        <!--Keresési mezők definiálása-->
+        <div class="well">
+            <div class="col-md-3">
+                <!--Beviteli mező definiálása-->
+                <input type="text" id="searchTextBox" class="form-control" placeholder="Keresés..."/>            
+            </div>
+            <div class="col-md-3">
+                <!--Keresés gomb definiálása-->
+                <a href="#" class="btn btn-primary" onclick="Search()">Szűrés...</a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <!--Táblázat definiálása-->
+        <table class="display" id="EmployeeDataTable">
+            <!--Táblázat Fejléc elkészítése-->
+            <thead>
+                <tr>
+                    <th>
+                        Név
+                    </th>
+                    <th>
+                        Részleg
+                    </th>
+                    <th>
+                        Cím
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+            </thead>
+            <!--Táblázat Törzs elkészítése-->
+            <tbody></tbody>
+        </table>
+
+        <!--Új dolgozó hozzáadása Gomb elkészítése-->
+        <div style="text-align: center">
+            <a href="#" class="btn btn-primary" align="center" onclick="EditEmployeeDetails(0)">Új dolgozó hozzáadása</a>
+        </div>
+
+        <!--Edit Employee Popup window elkészítése-->
+        <div class="modal fade" id="editOrNewEmployeeModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!--Header elkészítése-->
+                    <div class="modal-header">
+                        <!--Close button elkészítése a fejléchez-->
+                        <a href="#" class="close" data-dismiss="modal">&times;</a>
+                        <!--Címsor kiírása-->
+                        <h3 class="modal-title" align="center">Dolgozó Szerkesztése</h3>
+                    </div>
+                    <!--Törzs elkészítése-->
+                    <div class="modal-body" id="employeeEditOrNewModalBody" align="center">
+
+                    </div>
+                    <!--Lábjegyzet/Alsó rész elkészítése-->
+                    <div class="modal-footer">
+                        <a href="#" class="btn btn-danger" data-dismiss="modal">Visza</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--SCRIPT-ek definiálása-->
+<script>
+    /// Ha a DOM teljesen betöltött, akkor...
+    $(document).ready(function () {
+        BindDataTable();
+    })
+
+    /// Tárolni fogjuk, az elkészített DataTable-nket
+    var oTable;
+
+    /// Az egyedileg elkészített keresés mező-höz tartozó
+    /// keresés gomb definiálása.
+    var Search = function () {
+        BindDataTable();
+    }
+
+    /// A Controller által visszaadott adatok feltöltése az
+    /// elkészített táblázatba JQuery DataTable implementálásával
+    var BindDataTable = function (response) {
+
+        /// Vizsgálat, hogy a DataTable létezik-e már, annak elkerülése érdekében
+        /// hogy ne kelljen újra inicializálni az egész DataTable-t
+        if ($.fn.DataTable.isDataTable("#EmployeeDataTable")) {
+            /// A DataTable frissítése
+            oTable.draw();
+
+            $('#searchTextBox').val("");
+        }
+        else {
+            /// Táblázat azonosítása, majd Definiálása JQuery DataTable
+            /// Használatával
+            oTable = $("#EmployeeDataTable").DataTable({
+                "bServerSide": true,                                            /// Szerver oldali feldolgozás engedélyezésa
+                "sAjaxSource": "/Home/GetEmployeeRecords",                      /// Hol lesz elérhető az AJAX Hívásnak a Process metódus
+                "fnServerData": function (sSource, aoData, fnCallback) {        /// A szállítandó adathalmaz az AJAX hívás felé (aoData az az aktuális DataTable)
+
+                    /// Multiple Parameters küldése a Controllernek
+                    /// Az aoData-t nem írjuk felül, hanem ezeket a paramétereket,
+                    /// még hozzá adjuk pluszba.
+                    /// Továbbítjuk a keresendő adatokat a Controller-nek az egyedi kereső mezőből
+                    aoData.push({
+                        "name": "searchBoxValue",
+                        "value": $("#searchTextBox").val()
+                    })
+
+                    /// AJAX - Asyncron JavaScript And XML
+                    $.ajax({
+                        type: "GET",                /// Kérés típúsa
+                        data: aoData,               /// A küldendő adathalmaz (aoData az az aktuális DataTable amelyen végrehajtunk valamilyen funkciót)
+                        url: sSource,               /// Hol érhető el (Controller/Methodname)
+                        success: fnCallback         /// Ha sikeresen lefutott az ajax kérés, akkor csak meghívjuk azt a funkciót amelyet használni szerettünk volna
+                    })
+                },
+                "aoColumns": [                        /// Az Oszlopok definiálása (Melyik oszlopba, melyik a Modellnek megfelelő Property érték kerüljön bele)
+                    { "mData": "Name" },
+                    { "mData": "DepartmentName" },
+                    { "mData": "Adress" },
+                    {
+                        "mData": "EmployeeID",
+                        "bSortable": false,            /// Csoportosítás kikapcsolása
+                        "bSearchable": false,            /// Kereshetőség kikapcsolása
+                        /// "render" szintakszisa -> (Adat, amelyet át szeretnél adni, Type: Display, Full: A teljes objektumhoz tartozó attribútumok,
+                        ///                           Meta: A teljes beállításokat amely a DataTable-hez tarotznak (sor, oszlop, stb...))
+                        /// Egy gomb elkészítése, amely meg fog jelenni a Táblázat adott oszlopában
+                        "render": function (EmployeeID, type, full, meta) {
+                            return '<a href="#" onclick="EditEmployeeDetails(' + EmployeeID + ')"><i class="glyphicon glyphicon-pencil"></i></a>'
+                        }
+                    },
+                ]
+            });
+        }
+    }
+
+    /// EditEmployee függvény megvalósítása. AJAX Kérés segítségével, meg fog hívni
+    /// egy metódust, amely egy PartialView-on keresztül megjeleníti a paraméterben kapott
+    /// ID-jú Employee objektum adatait amelyeket szerkeszteni lehetlesz
+    var EditEmployeeDetails = function (EmployeeID) {
+        /// AJAX - Asyncron JavaScript And XML
+        $.ajax({
+            type: "POST",                               /// Kérés típusa
+            url: "../Home/EditOrNewEmployee",        /// Hol érhető el (Controller/MethodName)
+            data: { EmployeeID: EmployeeID },           /// A törlendő objektumok ID-ja JSON adatként
+            success: function (response) {              /// Ha skeresen lefutott az AJAX kérés
+                /// Az eredményként kapott PartialView-ot betöltjük a PopupWindow törzsébe
+                $("#employeeEditOrNewModalBody").html(response);
+
+                /// Popup Window megjelenítése
+                $("#editOrNewEmployeeModal").modal("show");
+            }
+        })
+    }
+</script>

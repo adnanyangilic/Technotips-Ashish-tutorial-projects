@@ -1,0 +1,25 @@
+﻿<!--Bootstrap stílus implementálása-->
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+@model DBConnectionWithEntityFramework.Models.ViewModels.EmployeeViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+<h2>Index</h2>
+
+<!--A Modell-ben található adatok megjelenítése-->
+<div class="container" style="width:60%;margin-top:2%">
+    @if(Model != null)
+    {
+        <ul class="list-group">
+            <li class="list-group-item active">Dolgozói adatok</li>
+            <li class="list-group-item">ID: <b>@Model.EmployeeID</b></li>
+            <li class="list-group-item">Név: <b>@Model.Name</b></li>
+            <li class="list-group-item">Cím: <b>@Model.Adress</b></li>
+            <li class="list-group-item">Osztály ID: <b>@Model.DepartmentID</b></li>
+        </ul>
+    }
+</div>

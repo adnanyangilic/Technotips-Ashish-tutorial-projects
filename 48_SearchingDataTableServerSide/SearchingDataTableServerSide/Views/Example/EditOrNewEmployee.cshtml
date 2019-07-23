@@ -1,0 +1,64 @@
+﻿<!--Modell definiálása-->
+@model SearchingDataTableServerSide.Models.ViewModels.EmployeeViewModel
+
+<!--Form elkészítése-->
+<form id="employeeForm">
+    @Html.HiddenFor(model => model.EmployeeID)
+
+    <!--Legördülős lista létrehozása HTML Helper segítségével-->
+    <!--Szintaktika(Az elem amit szállítani fogunk, A lista amivel feltöltjük majd, Mit szeretnék kiválaszott elemként látni,
+        Milyen HTML Dekorált objektumként jelenjen meg)-->
+    @Html.DropDownListFor(model => model.DepartmentID, TempData["DepartmentsDicitionaryTableElements"] as SelectList, "--- Kérem válaszon! ---", new { @class = "form-control" })
+
+    <!--TextBox-ok inicializálása-->
+    @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @placeholder = "Név" })
+
+    @Html.TextBoxFor(model => model.Adress, new { @class = "form-control", @placeholder = "Cím" })
+
+    @Html.TextBoxFor(model => model.SiteName, new { @class = "form-control", @placeholder = "Oldal név" })
+
+    <p></p>
+    <!--Submit button elkészítése-->
+    <!--Kétféle állapot. Ha az ID az > 0 akkor "Frissítjük" az adatoket, különben pedig új adatokat rögzítünk!-->
+    <a href="#" id="btnSubmit" class="btn btn-success btn-block">
+        @if (@Model.EmployeeID > 0)
+        {
+            <span>Frissítés</span>
+        }
+        else
+        {
+            <span>Mentés</span>
+        }
+    </a>
+</form>
+
+<!--Loading gif beszúrása-->
+<div style="text-align:center;display:none" id="loaderGIFDiv">
+    <img src="~/Content/InternetSlowdown_Day.gif" width="150" />
+</div>
+
+<!--Adatok rögzítése JQuery AJAX segítségével-->
+<script>
+    $(document).ready(function () {
+        /// A btnSubmit Gomb megnyomására fusson le az esemény
+        $("#btnSubmit").click(function () {
+            /// Loading Gif engedélyezése
+            $("#loaderGIFDiv").show();
+
+            /// A FORM-on található input adatok lekérdezése, amelyet tovább fogunk küldeni
+            var data = $("#employeeForm").serialize();
+
+            /// AJAX - Asyncron JavaScript And XML
+            $.ajax({
+                type    : "POST",                       /// Kérés típusa
+                url     : "/Example/SaveEmployee",      /// Hol érhető el (Controller/MethodName)
+                data    : data,                         /// Az elküldendő adathalmaz
+                success : function (response) {         /// Ha skeresen lefutott az AJAX kérés
+                    $("#loaderGIFDiv").hide();
+                    alert("Az adatok megfelelőek voltak! Sikeres rögzítés!");
+                    window.location.href = "";
+                }
+            })
+        })
+    })
+</script>

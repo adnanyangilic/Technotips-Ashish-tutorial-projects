@@ -1,0 +1,68 @@
+﻿<!--Bootstrap stílus implementálása-->
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+
+<!--Modell definiálása-->
+@model InsertDataIntoDBWithJQueryAjaxExample.Models.ViewModels.EmployeeViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+<h2 align="center">Index</h2>
+
+<!--Form elkészítése-->
+<div class="container" style="width:40%;margin-top:2%">
+
+    <form id="employeeForm">
+        <!--Legördülős lista létrehozása HTML Helper segítségével-->
+        <!--Szintaktika(Az elem amit szállítani fogunk, A lista amivel feltöltjük majd, Mit szeretnék kiválaszott elemként látni,
+            Milyen HTML Dekorált objektumként jelenjen meg)-->
+        @Html.DropDownListFor(@model => model.DepartmentID, TempData["DepartmentsDicitionaryTableElements"] as SelectList, "--- Kérem válaszon! ---", new { @class = "form-control" })
+
+        <!--TextBox-ok inicializálása-->
+        @Html.TextBoxFor(@model => model.Name, new { @class = "form-control", @placeholder = "Név" })
+        
+        @Html.TextBoxFor(@model => model.Adress, new { @class = "form-control", @placeholder = "Cím" })
+        
+        @Html.TextBoxFor(@model => model.SiteName, new { @class = "form-control", @placeholder = "Oldal név" })
+        
+        <!--Submit button elkészítése-->
+        <input type="reset" value="Mentés" class="btn btn-primary btn-block" id="btnSubmit"/>
+    </form>
+
+    <!--Loading gif beszúrása-->
+    <div style="text-align:center;display:none" id="loaderGIFDiv">
+        <img src="~/Content/InternetSlowdown_Day.gif" width="150"/>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<!--Adatok rögzítése JQuery AJAX segítségével-->
+<script>
+    $(document).ready(function () {
+        /// A btnSubmit Gomb megnyomására fusson le az esemény
+        $("#btnSubmit").click(function () {
+            /// Loading Gif engedélyezése
+            $("#loaderGIFDiv").show();
+
+            /// A FORM-on található input adatok lekérdezése, amelyet tovább fogunk küldeni
+            var data = $("#employeeForm").serialize();
+
+            /// AJAX - Asyncron JavaScript And XML
+            $.ajax({
+                type: "POST",                       /// Kérés típusa
+                url: "/Example/SaveEmployee",      /// Hol érhető el (Controller/MethodName)
+                data: data,                         /// Az elküldendő adathalmaz
+                success: function (response) {         /// Ha skeresen lefutott az AJAX kérés
+                    $("#loaderGIFDiv").hide();
+                    alert("Az adatok megfelelőek voltak! Sikeres rögzítés!");
+                }
+            })
+        })
+    })
+</script>

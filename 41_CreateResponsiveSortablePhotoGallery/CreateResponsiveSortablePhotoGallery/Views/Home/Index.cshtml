@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<!--Egy sorban 4 képet jelenítünk meg egymás mellett, melyek reszponzívan jelennek meg.
+    Egy sorban a col-md-x összege nem haladhatja meg a 12-őt. Összesen 12 kell hogy legyen
+    az összege, ennek megfelelően fogja feldarabolni a képernyőt-->
+<div class="panel panel-body">
+    <div class="col-md-3">
+        <img class="img-responsive" src="~/Content/Images/index.jpg" />
+    </div>
+    <div class="col-md-3">
+        <img class="img-responsive" src="~/Content/Images/index.jpg" />
+    </div>
+    <div class="col-md-3">
+        <img class="img-responsive" src="~/Content/Images/index.jpg" />
+    </div>
+    <div class="col-md-3">
+        <img class="img-responsive" src="~/Content/Images/index.jpg" />
+    </div>
+</div>
+
+<div class="panel panel-body">
+    <!--Oldalsó menüsáv elkészítése.-->
+    <div class="col-md-3">
+        @{ Html.RenderAction("SideMenu", "Example");}
+    </div>
+    <!--Tartalom elkészítése-->
+    <div class="col-md-9">
+        <!--Kép galéria definiálása. Egy összefogó objektum elkészítése, amelyben az általunk megjelenített
+            képeket tartalmazza-->
+        <ul class="list-group" id="SortableGallery" style="cursor:move">
+            <li class="list-group-item col-md-4">
+                <div>
+                    <img class="img-responsive" src="~/Content/Images/websolution.jpg" />
+                </div>
+            </li>
+            <li class="list-group-item col-md-4">
+                <div>
+                    <img class="img-responsive" src="~/Content/Images/example.png" />
+                </div>
+            </li>
+            <li class="list-group-item col-md-4">
+                <div>
+                    <img class="img-responsive" src="~/Content/Images/facebok-circular-logo_318-40188.jpg" />
+                </div>
+            </li>
+            <li class="list-group-item col-md-4">
+                <div>
+                    <img class="img-responsive" src="~/Content/Images/index.jpg" />
+                </div>
+            </li>
+            <li class="list-group-item col-md-4">
+                <div>
+                    <img class="img-responsive" src="~/Content/Images/picture12415890781875.png" />
+                </div>
+            </li>
+            <li class="list-group-item col-md-4">
+                <div>
+                    <img class="img-responsive" src="~/Content/Images/website.jpg" />
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!--SCRIPT Definiálása-->
+<script>
+    /// A képeket tartalmazó objektum összes elemére ráhúzzuk a Sortable
+    /// metódust. Ez lehetővé teszi számunkra, hogy mozgatni tudjuk a képeket
+    /// Drag&Drop módszerrel. Az elengedett objektum meg is tartja a helyét.
+    $("#SortableGallery").sortable({
+
+        /// Update metódus felülírása. Akkor fog lefutni, amikor egy képet
+        /// elengedünk és felveszi az új helyét
+        update: function () {
+            alert("Az elmozdított kép egy új helyre került!");
+        }
+    });
+</script>

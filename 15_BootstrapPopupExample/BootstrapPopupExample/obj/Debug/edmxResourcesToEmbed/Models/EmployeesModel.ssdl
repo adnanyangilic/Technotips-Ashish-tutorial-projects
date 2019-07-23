@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmployeesDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="EmployeesDBModelStoreContainer">
+    <EntitySet Name="Departments" EntityType="EmployeesDBModel.Store.Departments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Employees" EntityType="EmployeesDBModel.Store.Employees" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Sites" EntityType="EmployeesDBModel.Store.Sites" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__Employee__Depart__286302EC" Association="EmployeesDBModel.Store.FK__Employee__Depart__286302EC">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sites__EmployeeI__36B12243" Association="EmployeesDBModel.Store.FK__Sites__EmployeeI__36B12243">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Sites" EntitySet="Sites" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Departments">
+    <Key>
+      <PropertyRef Name="DepartmentID" />
+    </Key>
+    <Property Name="DepartmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="true" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="true" MaxLength="255" />
+    <Property Name="DepartmentID" Type="int" Nullable="false" />
+    <Property Name="Adress" Type="varchar" Nullable="true" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Sites">
+    <Key>
+      <PropertyRef Name="SitesID" />
+    </Key>
+    <Property Name="SitesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+    <Property Name="SiteName" Type="varchar" Nullable="true" MaxLength="255" />
+  </EntityType>
+  <Association Name="FK__Employee__Depart__286302EC">
+    <End Role="Department" Type="EmployeesDBModel.Store.Departments" Multiplicity="1" />
+    <End Role="Employee" Type="EmployeesDBModel.Store.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="DepartmentID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="DepartmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sites__EmployeeI__36B12243">
+    <End Role="Employee" Type="EmployeesDBModel.Store.Employees" Multiplicity="1" />
+    <End Role="Sites" Type="EmployeesDBModel.Store.Sites" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Sites">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

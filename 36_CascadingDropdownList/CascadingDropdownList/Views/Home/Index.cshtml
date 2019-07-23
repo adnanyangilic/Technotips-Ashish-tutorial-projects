@@ -1,0 +1,88 @@
+﻿<!--Modell definiálása-->
+@model CascadingDropdownList.Models.CountryAndStateModels.CountryAndStateViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<!--Egy sorban 4 képet jelenítünk meg egymás mellett, melyek reszponzívan jelennek meg.
+    Egy sorban a col-md-x összege nem haladhatja meg a 12-őt. Összesen 12 kell hogy legyen
+    az összege, ennek megfelelően fogja feldarabolni a képernyőt-->
+<div class="panel panel-body">
+    <div class="col-md-3">
+        <img class="img-responsive" src="~/Content/Images/index.jpg" />
+    </div>
+    <div class="col-md-3">
+        <img class="img-responsive" src="~/Content/Images/index.jpg" />
+    </div>
+    <div class="col-md-3">
+        <img class="img-responsive" src="~/Content/Images/index.jpg" />
+    </div>
+    <div class="col-md-3">
+        <img class="img-responsive" src="~/Content/Images/index.jpg" />
+    </div>
+</div>
+
+<div class="panel panel-body">
+    <!--Oldalsó menüsáv elkészítése.-->
+    <div class="col-md-3">
+        @{ Html.RenderAction("SideMenu", "Example");}
+    </div>
+
+    <!--Content elkészítése-->
+    <!--A kép megjelenítéséhez szükséges elemek megjelenítése-->
+    <div class="col-md-9" align="center">
+        
+        <!--Legördülős lista létrehozása HTML Helper segítségével-->
+        <!--Szintaktika(Az elem amit szállítani fogunk, A lista amivel feltöltjük majd, Mit szeretnék kiválaszott elemként látni,
+            Milyen HTML Dekorált objektumként jelenjen meg)-->
+        @Html.DropDownListFor(m => m.CountryID, TempData["CountryDicitionaryTableElements"] as SelectList, "--- Kérem válaszon Országot! ---", new { @class = "form-control" })
+
+        <!--Legördülős lista létrehozása HTML Helper segítségével-->
+        <!--Szintaktika(Az elem amit szállítani fogunk, A lista amivel feltöltjük majd, Mit szeretnék kiválaszott elemként látni,
+            Milyen HTML Dekorált objektumként jelenjen meg)-->
+        @Html.DropDownListFor(m => m.StateID, new SelectList(""), "--- Kérem válaszon Államot / Megyét---", new { @class = "form-control" })
+
+    </div>
+</div>
+
+<!--SCRIPT-ek definiálása-->
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+<!--Az Állam/ Megye DropDownList feltöltéséért felelős SCRIPT definiálása-->
+<script>
+    /// A DOM Dokuemnt teljes betöltődésekor definiálja a SCRIPT-eket a felületen
+    /// megjelenő objektumhoz
+    $(document).ready(function () {
+        /// Az Ország választó DropDownList-ben található elem kiválasztásakor
+        /// fusson le a metódus. A metódus eredménye, hogy az Állam/ Megye DropDownList-et
+        /// feltölti adatokkal
+        $('#CountryID').change(function () {
+
+            /// Az Ország listában kiválasztott elem értéke (CountryID)
+            var selectedCountryID = $(this).val();
+
+            /// Vizsgálat, hogy a Default értéket választottuk-e ki, ha igen...
+            if (selectedCountryID == "")
+            {
+                /// Akkor a kiválasztott ID értéke 0-a lesz, mivel az adatbázisban nincs
+                /// 0 ID-hoz kapcsolódó érték
+                selectedCountryID = 0;
+            }
+
+            /// AJAX - Asyncron JavaScript And XML
+            $.ajax({
+                type            : "GET",                                            /// Kérés típusa
+                url             : "/Home/GetStates?CountryID=" + selectedCountryID, /// Hol érhető el (Controller/MethodName)
+                countentType    : "html",                                           /// A tartalom típusa
+                success         : function (response) {                             /// Ha skeresen lefutott az AJAX kérés
+                    /// Kitöröljük az Állam/ Megye DropDownList tartalmát
+                    $("#StateID").empty();
+
+                    /// Feltöltjük az Állam/ Megye DropDownList tartalmát a válasz visszatérési értékével
+                    $("#StateID").append(response);
+                }
+            })
+        })
+    })
+</script>

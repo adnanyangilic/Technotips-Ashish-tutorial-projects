@@ -1,0 +1,95 @@
+﻿<!--Modell definiálása-->
+@model IntegrateDataTables.Models.ViewModels.LoginViewModel
+
+@{
+    ViewBag.Title = "Bejelentkezés";
+}
+
+<!--Menü elkészítése. Jobb oldal-t menüsáv, bal oldalt pedig a tartalom-->
+<div class="panel panel-body">
+    <!--Jobb oldalsó rész elkészítése, azaz a "Menüsáv" elkészítése-->
+    <div class="col-md-3">
+        @{ Html.RenderAction("SideMenu", "Example");}
+    </div>
+
+    <!--Content elkészítése-->
+    <div class="col-md-9" align="center">
+        <!--Űrlap elkészítése-->
+        <form id="loginForm">
+            <!--Űrlap címének megjelenítése-->
+            <h2 align="center">Bejelentkezés</h2>
+            <br />
+
+            <!--E-mail TextBox mező elkészítése-->
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.TextBoxFor(m => Model.EmailID, new { @class = "form-control", @placeholder = "E-mail cím" })
+                    @Html.ValidationMessageFor(m => Model.EmailID, "", new { @class = "text-danger" })
+                    <br />
+                </div>
+            </div>
+            <!--Password passwordbox mező elkészítése-->
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.PasswordFor(m => Model.Password, new { @class = "form-control", @placeholder = "Jelszó" })
+                    @Html.ValidationMessageFor(m => Model.Password, "", new { @class = "text-danger" })
+                    <br />
+                </div>
+            </div>
+            <!--Bejelentkezés gomb elkészítése mező elkészítése-->
+            <div class="form-group">
+                <div class="col-md-12">
+                    <a href="#" class="btn btn-primary" onclick="LoginUser()">
+                        Bejelentkezés
+                        <i class="glyphicon glyphicon-log-in"></i>
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--Gomb Scriptek definiálása-->
+<script>
+    /// UserRegistration függvény megvalósítása. AJAX Kérés segítségével, meg fog hívni
+    /// egy metódust, amely elmenti a felhasználó által megadott adatokat az adatbázisba
+    var LoginUser = function () {
+
+        /// A felhasználó által megadott adatok kiolvasása, az
+        /// input mezőkből
+        var data = $("#loginForm").serialize();
+
+        /// Vizsgálat, hogy az általunk elkészített Form valid-e
+        if (!$("#loginForm").valid())
+        {
+            return false;
+        }
+
+        /// AJAX - Asyncron JavaScript And XML
+        $.ajax({
+            type    :   "POST",                             /// Kérés típusa
+            url     :   "/Example/LoginUser",               /// Hol érhető el (Controller/MethodName)
+            data    :    data,                              /// A controller-nek átadandó adathalmaz
+            success : function (response) {                 /// Ha sikeresen lefutott az AJAX kérés
+                /// A kérés visszatérési értékének függően navigálunk
+                /// a további oldalakra
+                if (response == "NotFound")
+                {
+                    /// Hibás login esetén
+                    window.location.href = "/Example/Login";
+                }
+                else if (response == "Admin")
+                {
+                    /// Admin login esetén
+                    window.location.href = "/Example/Admin";
+                }
+                else
+                {
+                    /// User login esetén
+                    window.location.href = "/Example/Index";
+                }
+            }
+        })
+    }
+</script>
+

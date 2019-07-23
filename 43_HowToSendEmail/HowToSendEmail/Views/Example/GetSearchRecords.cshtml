@@ -1,0 +1,35 @@
+﻿<!--Modell definiálása-->
+@model IEnumerable<HowToSendEmail.Models.ViewModels.EmployeeViewModel>
+
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+        <!--Minden sort megcímkézzük az EmployeeID-val, annak érdekében, hogyha egy sikeres törlést
+        hajtunk végre, akkor tudjuk, hogy melyik tábla sort kell kitörölni, azaz melyik ID-jú sorra
+        hivatkozzunk-->
+        <tr id="row_@item.EmployeeID">
+            <td>@item.Name</td>
+            <td>@item.DepartmentName</td>
+            <td>@item.Adress</td>
+            <!--Törlés gomb elkészítése-->
+            <td>
+                <a href="#" class="btn btn-danger" onclick="ConfirmDeleteEmployee(@item.EmployeeID)">
+                    <i class="glyphicon glyphicon-trash"></i>
+                </a>
+            </td>
+            <!--Dolgozói adatok megmutatásához szükséges gomb elkészítése-->
+            <td>
+                <a href="#" class="btn btn-success" onclick="ShowEmployeeDetails(@item.EmployeeID)">
+                    <i class="glyphicon glyphicon-eye-open"></i>
+                </a>
+            </td>
+            <!--Dolgozói adatok szerkesztéséhez szükséges gomb elkészítése-->
+            <td>
+                <a href="#" class="btn btn-primary" onclick="EditEmployeeDetails(@item.EmployeeID)">
+                    <i class="glyphicon glyphicon-pencil"></i>
+                </a>
+            </td>
+        </tr>
+    }
+}

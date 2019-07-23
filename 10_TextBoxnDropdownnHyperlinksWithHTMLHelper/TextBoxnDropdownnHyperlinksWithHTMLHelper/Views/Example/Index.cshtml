@@ -1,0 +1,36 @@
+﻿<!--Bootstrap stílus implementálása-->
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<!--Modell definiálása-->
+@model TextBoxnDropdownnHyperlinksWithHTMLHelper.Models.ViewModels.EmployeeViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+<h2 align="center">Index</h2>
+
+<!--Form elkészítése-->
+<div class="container" style="width:40%;margin-top:2%">
+    <!--Legördülős lista létrehozása HTML Helper segítségével-->
+    <!--Szintaktika(Az elem amit szállítani fogunk, A lista amivel feltöltjük majd, Mit szeretnék kiválaszott elemként látni,
+        Milyen HTML Dekorált objektumként jelenjen meg)-->
+    @Html.DropDownListFor(@model => model.DepartmentID, ViewBag.DepartmentsDicitionaryTableElements as SelectList, "--- Kérem válaszon! ---", new { @class="form-control"})
+
+    <!--TextBox-ok inicializálása-->
+    @Html.TextBoxFor(@model => model.Name, new { @class = "form-control", @placeholder="Név" })
+    @Html.TextBoxFor(@model => model.Adress, new { @class = "form-control", @placeholder="Cím" })
+
+    <!--CheckBox inicializálása-->
+    <div class="checkbox">
+        <label>
+            @Html.CheckBoxFor(@model => model.Remember)
+            Jegyezd meg!
+        </label>
+    </div>
+
+    <!--Submit button elkészítése-->
+    <input type="submit" value="Megtekint" class="btn btn-primary btn-block"/>
+</div>
+

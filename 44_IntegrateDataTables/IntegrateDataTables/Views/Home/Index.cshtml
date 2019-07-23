@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<!--Egy sorban 4 képet jelenítünk meg egymás mellett, melyek reszponzívan jelennek meg.
+    Egy sorban a col-md-x összege nem haladhatja meg a 12-őt. Összesen 12 kell hogy legyen
+    az összege, ennek megfelelően fogja feldarabolni a képernyőt-->
+<div class="panel panel-body">
+    <div class="col-md-3">
+        <img class="img-responsive" src="~/Content/Images/index.jpg" />
+    </div>
+    <div class="col-md-3">
+        <img class="img-responsive" src="~/Content/Images/index.jpg" />
+    </div>
+    <div class="col-md-3">
+        <img class="img-responsive" src="~/Content/Images/index.jpg" />
+    </div>
+    <div class="col-md-3">
+        <img class="img-responsive" src="~/Content/Images/index.jpg" />
+    </div>
+</div>
+
+<div class="panel panel-body">
+    <!--Oldalsó menüsáv elkészítése.-->
+    <div class="col-md-3">
+        @{ Html.RenderAction("SideMenu", "Example");}
+    </div>
+    <!--Tartalom elkészítése-->
+    <div class="col-md-9">
+        <!--Táblázat definiálása-->
+        <table class="display" id="EmployeeDataTable">
+            <!--Táblázat Fejléc elkészítése-->
+            <thead>
+                <tr>
+                    <th>
+                        Dolgozó neve
+                    </th>
+                    <th>
+                        Részleg
+                    </th>
+                    <th>
+                        Fizetés
+                    </th>
+                </tr>
+            </thead>
+            <!--Táblázat Törzs elkészítése-->
+            <tbody>
+                <tr>
+                    <td>Teszt_Elek_1</td>
+                    <td>Osztály_1</td>
+                    <td>52000</td>
+                </tr>
+                <tr>
+                    <td>Teszt_Elek_2</td>
+                    <td>Osztály_2</td>
+                    <td>100000</td>
+                </tr>
+                <tr>
+                    <td>Teszt_Elek_3</td>
+                    <td>Osztály_2</td>
+                    <td>1805200</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!--SCRIPT-ek definiálása-->
+<script>
+    /// Ha a DOM teljesen betöltött, akkor...
+    $(document).ready(function () {
+        /// JQuery DataTable Implementálása az elkészített táblázatunkra
+        $("#EmployeeDataTable").DataTable();
+    })
+</script>

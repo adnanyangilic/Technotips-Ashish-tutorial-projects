@@ -1,0 +1,82 @@
+﻿<!--Modell definiálása-->
+@model UploadAndDisplayImageExample.Models.ViewModels.RegistrationViewModel
+
+@{
+    ViewBag.Title = "Regisztráció";
+}
+
+<!--Menü elkészítése. Jobb oldal-t menüsáv, bal oldalt pedig a tartalom-->
+<div class="panel panel-body">
+    <!--Jobb oldalsó rész elkészítése, azaz a "Menüsáv" elkészítése-->
+    <div class="col-md-3">
+        @{ Html.RenderAction("SideMenu", "Example");}
+    </div>
+
+    <!--Content elkészítése-->
+    <div class="col-md-9" align="center">
+        <!--Űrlap elkészítése-->
+        <form id="registrationForm">
+            <!--Űrlap címének megjelenítése-->
+            <h2 align="center">Regisztráció</h2>
+
+            <!--Felhasználónév TextBox mező elkészítése-->
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.TextBoxFor(m => Model.UserName, new { @class = "form-control", @placeholder = "Felhasználónév" })
+                </div>
+            </div>
+            <!--E-mail TextBox mező elkészítése-->
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.TextBoxFor(m => Model.EmailID, new { @class = "form-control", @placeholder = "E-mail cím" })
+                </div>
+            </div>
+            <!--Password passwordbox mező elkészítése-->
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.PasswordFor(m => Model.Password, new { @class = "form-control", @placeholder = "Jelszó" })
+                </div>
+            </div>
+            <!--Cím TextBox mező elkészítése-->
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.TextBoxFor(m => Model.Adress, new { @class = "form-control", @placeholder = "Cím" })
+                </div>
+            </div>
+            <!--Mentés gomb elkészítése mező elkészítése-->
+            <div class="form-group">
+                <div class="col-md-12">
+                    <a href="#" class="btn btn-primary" onclick="UserRegistration()">
+                        Mentés
+                        <i class="glyphicon glyphicon-floppy-save"></i>
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--Gomb Scriptek definiálása-->
+<script>
+    /// UserRegistration függvény megvalósítása. AJAX Kérés segítségével, meg fog hívni
+    /// egy metódust, amely elmenti a felhasználó által megadott adatokat az adatbázisba
+    var UserRegistration = function () {
+
+        /// A felhasználó által megadott adatok kiolvasása, az
+        /// input mezőkből
+        var data = $("#registrationForm").serialize();
+        /// AJAX - Asyncron JavaScript And XML
+        $.ajax({
+            type    :   "POST",                     /// Kérés típusa
+            url     :   "/Example/RegisterUser",    /// Hol érhető el (Controller/MethodName)
+            data    :    data,                      /// A controller-nek átadandó adathalmaz
+            success : function (response) {                 /// Ha sikeresen lefutott az AJAX kérés
+                /// Üzenet küldése a felhasználó számára
+                alert("Az adatok mentése sikeres volt!");
+
+                /// Navigálás az INDEX-re
+                window.location.href = response.Url;
+            }
+        })
+    }
+</script>

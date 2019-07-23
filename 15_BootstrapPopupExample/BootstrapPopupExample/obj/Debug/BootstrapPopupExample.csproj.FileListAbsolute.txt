@@ -1,0 +1,164 @@
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\ApplicationInsights.config
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\roslyn\csc.exe
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\roslyn\Microsoft.CodeAnalysis.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\roslyn\Microsoft.CSharp.Core.targets
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\roslyn\Microsoft.VisualBasic.Core.targets
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\roslyn\System.Collections.Immutable.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\roslyn\System.Reflection.Metadata.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\roslyn\vbc.exe
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\roslyn\VBCSCompiler.exe
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\roslyn\VBCSCompiler.exe.config
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\BootstrapPopupExample.dll.config
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\BootstrapPopupExample.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\BootstrapPopupExample.pdb
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Antlr3.Runtime.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\EntityFramework.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\EntityFramework.SqlServer.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.AI.Agent.Intercept.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.AI.DependencyCollector.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.AI.PerfCounterCollector.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.AI.ServerTelemetryChannel.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.AI.Web.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.AI.WindowsServer.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.ApplicationInsights.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.AspNet.Identity.Core.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.AspNet.Identity.Owin.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Owin.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Owin.Host.SystemWeb.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Owin.Security.Cookies.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Owin.Security.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Owin.Security.Facebook.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Owin.Security.Google.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Owin.Security.OAuth.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Owin.Security.Twitter.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Web.Infrastructure.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Newtonsoft.Json.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Owin.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\System.Web.Helpers.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\System.Web.Mvc.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\System.Web.Optimization.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\System.Web.Razor.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\System.Web.WebPages.Deployment.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\System.Web.WebPages.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\System.Web.WebPages.Razor.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\WebGrease.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.AI.DependencyCollector.xml
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.AI.ServerTelemetryChannel.xml
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.AI.Web.xml
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.AI.WindowsServer.xml
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.ApplicationInsights.xml
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\System.Web.Helpers.xml
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\System.Web.Mvc.xml
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\System.Web.Optimization.xml
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\System.Web.Razor.xml
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\System.Web.WebPages.xml
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\System.Web.WebPages.Deployment.xml
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\System.Web.WebPages.Razor.xml
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Antlr3.Runtime.pdb
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Newtonsoft.Json.xml
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\EntityFramework.xml
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\EntityFramework.SqlServer.xml
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.AspNet.Identity.Core.xml
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.AspNet.Identity.Owin.xml
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Owin.xml
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Owin.Host.SystemWeb.xml
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Owin.Security.xml
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Owin.Security.Facebook.xml
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Owin.Security.Cookies.xml
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Owin.Security.OAuth.xml
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Owin.Security.Google.xml
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Owin.Security.Twitter.xml
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\obj\Debug\BootstrapPopupExample.csprojResolveAssemblyReference.cache
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\obj\Debug\BootstrapPopupExample.dll
+c:\users\kozakp\documents\visual studio 2015\Projects\BootstrapPopupExample\BootstrapPopupExample\obj\Debug\BootstrapPopupExample.pdb
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\ApplicationInsights.config
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\roslyn\csc.exe
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\roslyn\Microsoft.CodeAnalysis.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\roslyn\Microsoft.CSharp.Core.targets
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\roslyn\Microsoft.VisualBasic.Core.targets
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\roslyn\System.Collections.Immutable.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\roslyn\System.Reflection.Metadata.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\roslyn\vbc.exe
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\roslyn\VBCSCompiler.exe
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\roslyn\VBCSCompiler.exe.config
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\BootstrapPopupExample.dll.config
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\BootstrapPopupExample.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\BootstrapPopupExample.pdb
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Antlr3.Runtime.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\EntityFramework.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\EntityFramework.SqlServer.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.AI.Agent.Intercept.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.AI.DependencyCollector.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.AI.PerfCounterCollector.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.AI.ServerTelemetryChannel.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.AI.Web.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.AI.WindowsServer.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.ApplicationInsights.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.AspNet.Identity.Core.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.AspNet.Identity.Owin.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Owin.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Owin.Host.SystemWeb.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Owin.Security.Cookies.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Owin.Security.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Owin.Security.Facebook.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Owin.Security.Google.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Owin.Security.OAuth.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Owin.Security.Twitter.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Web.Infrastructure.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Newtonsoft.Json.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Owin.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\System.Web.Helpers.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\System.Web.Mvc.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\System.Web.Optimization.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\System.Web.Razor.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\System.Web.WebPages.Deployment.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\System.Web.WebPages.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\System.Web.WebPages.Razor.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\WebGrease.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.AI.DependencyCollector.xml
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.AI.ServerTelemetryChannel.xml
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.AI.Web.xml
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.AI.WindowsServer.xml
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.ApplicationInsights.xml
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\System.Web.Helpers.xml
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\System.Web.Mvc.xml
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\System.Web.Optimization.xml
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\System.Web.Razor.xml
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\System.Web.WebPages.xml
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\System.Web.WebPages.Deployment.xml
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\System.Web.WebPages.Razor.xml
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Antlr3.Runtime.pdb
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Newtonsoft.Json.xml
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\EntityFramework.xml
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\EntityFramework.SqlServer.xml
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.AspNet.Identity.Core.xml
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.AspNet.Identity.Owin.xml
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Owin.xml
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Owin.Host.SystemWeb.xml
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Owin.Security.xml
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Owin.Security.Facebook.xml
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Owin.Security.Cookies.xml
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Owin.Security.OAuth.xml
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Owin.Security.Google.xml
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Owin.Security.Twitter.xml
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\obj\Debug\BootstrapPopupExample.csprojResolveAssemblyReference.cache
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\obj\Debug\BootstrapPopupExample.dll
+\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\obj\Debug\BootstrapPopupExample.pdb

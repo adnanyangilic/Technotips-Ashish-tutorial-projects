@@ -1,0 +1,66 @@
+﻿<!--Modell definiálása-->
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<!--Egy sorban 4 képet jelenítünk meg egymás mellett, melyek reszponzívan jelennek meg.
+    Egy sorban a col-md-x összege nem haladhatja meg a 12-őt. Összesen 12 kell hogy legyen
+    az összege, ennek megfelelően fogja feldarabolni a képernyőt-->
+<div class="panel panel-body">
+    <div class="col-md-3">
+        <img class="img-responsive" src="~/Content/Images/index.jpg" />
+    </div>
+    <div class="col-md-3">
+        <img class="img-responsive" src="~/Content/Images/index.jpg" />
+    </div>
+    <div class="col-md-3">
+        <img class="img-responsive" src="~/Content/Images/index.jpg" />
+    </div>
+    <div class="col-md-3">
+        <img class="img-responsive" src="~/Content/Images/index.jpg" />
+    </div>
+</div>
+
+<div class="panel panel-body">
+    <!--Oldalsó menüsáv elkészítése.-->
+    <div class="col-md-3">
+        @{ Html.RenderAction("SideMenu", "Example");}
+    </div>
+    <!--Tartalom elkészítése-->
+    <div class="col-md-9">
+        <div class="col-md-5">
+            <!--Lista csoport elkészítése...-->
+            <ul class="list-grop">
+                
+                <!--List fejléce, azaz címének elkészítése-->
+                <li class="list-group-item-heading list-group-item active">
+                    <h4 class="list-group-item-text">Az elérhető elemek a boltomban</h4>
+                </li>
+                
+                <!--Lista tartalmának feltöltése, azaz a ViewBag-ben található Lista kiíratása-->
+                @foreach(var item in ViewBag.ShopItemList)
+                {
+                    <li class="list-group-item">
+                        <!--CheckBox-ok elkészítése.
+                                Első sor maga a CheckBox mező definiálása (aazaz True/False),
+                                Második sor, a hozzá tartozó név elkészítése-->
+                        <div class="checkbox">
+                            <input type="checkbox" id="check_@item.ID" checked="@item.IsAvailable"/>
+                            <label for="Check_@item.ID">@item.Name</label>
+                        </div>
+                    </li>
+                }
+
+                <!--Elemek frissítése gomb elkészítése-->
+                <li class="list-group-item">
+                    <a class="btn btn-success btn-block"> 
+                        Elemek frissítése
+                        <i class="glyphicon glyphicon-refresh"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<!--Egy sorban 4 képet jelenítünk meg egymás mellett, melyek reszponzívan jelennek meg.
+    Egy sorban a col-md-x összege nem haladhatja meg a 12-őt. Összesen 12 kell hogy legyen
+    az összege, ennek megfelelően fogja feldarabolni a képernyőt-->
+<div class="panel panel-body">
+    <div class="col-md-3">
+        <img class="img-responsive" src="~/Content/Images/index.jpg" />
+    </div>
+    <div class="col-md-3">
+        <img class="img-responsive" src="~/Content/Images/index.jpg" />
+    </div>
+    <div class="col-md-3">
+        <img class="img-responsive" src="~/Content/Images/index.jpg" />
+    </div>
+    <div class="col-md-3">
+        <img class="img-responsive" src="~/Content/Images/index.jpg" />
+    </div>
+</div>
+
+<div class="panel panel-body">
+    <!--Oldalsó menüsáv elkészítése.-->
+    <div class="col-md-3">
+        @{ Html.RenderAction("SideMenu", "Example");}
+    </div>
+    <!--Tartalom elkészítése-->
+    <div class="col-md-9">
+        <h3 align="center">E-mail küldéséhez kérem nyomja meg a gombot</h3><br />
+
+        <!--E-mail küldés gomb definiálása-->
+        <div style="text-align:center">
+            <a align="center" class="btn btn-danger" onclick="SendEmail()">
+                E-mail elküldése
+                <i class="glyphicon glyphicon-send"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!--SCRIPT-ek definiálása-->
+<script>
+    /// E-mail küldéséhez szükséges metódus definiálása
+    var SendEmail = function () {
+        /// AJAX - Asyncron JavaScript And XML
+        $.ajax({
+            type    : "GET",                                        /// A kérés típusa
+            url     : "../Home/SendEmailToUser",                    /// Hol érhető el (Controller/MethodName)
+            success: function (data) {                              /// Ha a kérés sikeres volt, akkor...
+                alert("E-mail elküldése sikeres!!");
+            }
+        })
+    }
+</script>

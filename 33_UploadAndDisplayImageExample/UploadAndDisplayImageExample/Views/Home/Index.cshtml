@@ -1,0 +1,208 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<!--Egy sorban 4 képet jelenítünk meg egymás mellett, melyek reszponzívan jelennek meg.
+    Egy sorban a col-md-x összege nem haladhatja meg a 12-őt. Összesen 12 kell hogy legyen
+    az összege, ennek megfelelően fogja feldarabolni a képernyőt-->
+<div class="panel panel-body">
+    <div class="col-md-3">
+        <img class="img-responsive" src="~/Content/Images/index.jpg" />
+    </div>
+    <div class="col-md-3">
+        <img class="img-responsive" src="~/Content/Images/index.jpg" />
+    </div>
+    <div class="col-md-3">
+        <img class="img-responsive" src="~/Content/Images/index.jpg" />
+    </div>
+    <div class="col-md-3">
+        <img class="img-responsive" src="~/Content/Images/index.jpg" />
+    </div>
+</div>
+
+<div class="panel panel-body">
+    <!--Oldalsó menüsáv elkészítése.-->
+    <div class="col-md-3">
+        @{ Html.RenderAction("SideMenu", "Example");}
+    </div>
+
+    <!--Content elkészítése-->
+    <!--A kép megjelenítéséhez szükséges elemek megjelenítése-->
+    <div class="col-md-9" align="center">
+
+        <h3 align="center">Kérem válasza ki a feltöltendő fájlt: </h3><br />
+
+        <!--Tallózás gomb elkészítése-->
+        <div class="btn btn-primary">
+            <input type="file" id="imageBrowse" />
+        </div>
+        <br /><br />
+
+        <!--Panel elkészítése. Tartalmazza a kiválasztott képet, majd a
+            hozzá tartozó információkat-->
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-4 text-center">
+
+                <!--Objektum, amely tartalmazni fogja a kiválasztott képet, majd
+                    a képhez tartozó információkat-->
+                <div id="imgPreview" class="thumbnail" style="display:none">
+
+                    <!--Objektum amely tartalmazni fogja a kiválasztott képet-->
+                    <img class="img-responsive" id="targetImg" />
+
+                    <!--Kép alatti rész, amely tartalmazni fogja a képhez tartozó
+                        információkat, illetve az elvetéshez szükséges információkat-->
+                    <div class="caption">
+
+                        <!--Elvetés gomb definiálása-->
+                        <a href="#" onclick="ClearPreview()">
+                            A fájl eltávoltása
+                            <i class="glyphicon glyphicon-trash"></i>
+                        </a>
+                        <!--Információkat tartalmazó objektum definiálása-->
+                        <p id="description"></p>
+                    </div>
+                    
+                    <a href="#" class="btn btn-success" onclick="UploadImage()">
+                        Kép feltöltése
+                        <i class="glyphicon glyphicon-upload"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!--Panel elkészítése. Tartalmazza a legutóbb feltöltött képet-->        
+        <div class="row">
+            <div id="lastestUploadImageField" class="col-sm-4 col-sm-offset-4 text-center" style="display:none">
+                
+                <!--Felirat beszúrása-->
+                <h3 align="center">A legutóbb feltöltött fájl: </h3><br />
+
+                <!--DIV elkészítése, amelyikben  meg fogjuk jeleníteni, a
+                    legutóbbi feltöltött képet-->
+                <div id="latestUploadImage" class="thumbnail">
+
+                </div>                
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--SCRIPT-ek definiálása-->
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+<!--A kép megjelenítéséhez, illetve az elvetéséhez szükséges
+    SCRIPT-ek definiálása-->
+<script>
+    /// Ha a DOM Document minden eleme betöltődött, akkor fusson le a függvény.
+    $(document).ready(function ()
+    {
+        /// A tallózás gombra kattintva fut le a change esemény (Ha kiválasztottunk,
+        /// egy fájl-t, vagy ha bezártuk a tallózás modális ablakot)
+        $("#imageBrowse").change(function ()
+        {
+            /// Eltároljuk a kiválasztott fájl-t
+            var selectedFile = this.files;
+
+            /// Ha a selectedFile nem null értékű, és a 0. eleme sem az,
+            /// azaz volt kiválasztott fájl, akkor...
+            if (selectedFile && selectedFile[0])
+            {
+                /// Beolvassuk a kiválsztott fájlok tömb 0. elemét, azaz az
+                /// egyetlen egy kiválasztott feltöltendő fájlt
+                ReadImage(selectedFile[0]);
+            }
+        })
+    })
+
+    /// A Beolvasásért és a kép megjelenítéséért, illetve a képhez tartozó adatok
+    /// megjelenítéséért felelős metódus
+    var ReadImage = function (currentFile)
+    {
+        /// Reader illetve Image objektumok definiálása
+        var reader = new FileReader;
+        var image = new Image;
+
+        /// Fájl tartalmának beolvasása, az eredmény attribútum tartalmazza
+        /// az adatokat, mint URL- t
+        reader.readAsDataURL(currentFile);
+
+        /// Akkor fut le amikor az egyik terheléses esemény aktiválódik. Jelen
+        /// esetben a ReadAsDataURL fájl betöltésére fog meghívódni
+        reader.onload = function (file)
+        {
+            /// Image objektumba betöltjük a paraméterben kapott readAsDataURL által
+            /// beolvasott tartalmat
+            image.src = file.target.result;
+
+            /// Akkor fut le amikor az egyik terheléses esemény aktiválódik. Jelen
+            /// esetben az src fájl beolvasására fog meghívódni
+            image.onload = function ()
+            {
+                /// Adatok kinyerése az src-nek átadott adattartalom alapján
+                /// Magasság, Szélesség, Fájl típusa, Mérete
+                var height  = this.height;
+                var width   = this.width;
+                var type    = currentFile.type;
+                var size    = ~~(currentFile.size / 1024) + "KB";
+
+                /// Feltöltjük az objektumot, az Image objektumban található képpel
+                $("#targetImg").attr('src', file.target.result);
+
+                /// Feltöltjük az objektumot a képről található információkkal
+                $("#description").text("Méret: " + size + ", (" + height + "x " + width + ")");
+
+                /// Az adatokkal feltöltött objektumok megjelenítése a felhasználónak
+                $("#imgPreview").show();
+            }
+        }
+    }
+
+    /// A "Fájl feltöltése" gombra kattintva hívódik meg az esemény
+    /// Feltölti a felhasználó által kiválasztott fájlt a webszerverre
+    var UploadImage = function () 
+    {
+        /// Fájl kiolvasása az "imageBrowse" objektumból. Annak is a 0. elemét, mivel
+        /// feltételezhetjük hogy a több fájl választási lehetősége be van kapcsolva,
+        /// de ugyan úgy csak 1 fájlt szeretnénk feltölteni
+        var file = $("#imageBrowse").get(0).files;
+
+        /// Egy FormData objektumon keresztül fogom átküldeni a kiválasztott fájlt
+        var data = new FormData;
+        data.append("ImageFile", file[0])
+
+        /// AJAX - Asyncron JavaScript And XML
+        $.ajax({
+            type: "POST",                   /// Kérés típusa
+            url: "/Home/ImageUpload",       /// Hol érhető el (Controller/MethodName)
+            data: data,                     /// A feltöltendő fájl
+            contentType: false,             /// Az adattípus amit küldünk (Kikapcsolva!)
+            processData: false,             /// Az adatok ne kerüljenek feldolgozásra!
+            success: function (response)    /// Ha skeresen lefutott az AJAX kérés
+            {
+                /// Töröljük a meglévő mezőket (Kiválasztott kép, hozzá tartozó adatok, stb...) 
+                ClearPreview();
+
+                /// Megjelenítjük azt a Blokkot, amely tartalmazni fogja a feltöltött képhez tartozó
+                /// információkat
+                $("#lastestUploadImageField").show();
+
+                /// A legutóbb feltöltött képet töröljük a DIV tag-ünkből (Így mindig csak a tényleges
+                /// legutóbbi feltöltött kép fog megjelenni)
+                $("#latestUploadImage img:last-child").remove()
+
+                /// DIV-tag-hez hozzá adjuk azt az IMG tag-et ami tartalmazni fogja a legutóbb feltöltött
+                /// képet (A kép beolvasása már a webszerverről történik)
+                $("#latestUploadImage").append('<img src="/UploadedImage/' + response + '" class="img-responsive thumbnail"/>');
+            }
+        })
+    }
+
+    /// Az "Adatok eltávolítása" gombra kattintva hívódik meg az esemény
+    /// Kitörli az információs objektumokat, majd eltünteti azt a felhasználó szeme elől
+    var ClearPreview = function ()
+    {
+        $("#imageBrowse").val('');
+        $("#description").text('');
+        $("#imgPreview").hide();
+    }
+</script>

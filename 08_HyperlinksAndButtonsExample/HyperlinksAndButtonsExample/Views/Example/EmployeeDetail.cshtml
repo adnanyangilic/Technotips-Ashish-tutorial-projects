@@ -1,0 +1,32 @@
+﻿<!--Bootstrap stílus implementálása-->
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<!--Modell definiálása-->
+@model HyperlinksAndButtonsExample.Models.ViewModels.EmployeeViewModel
+
+@{
+    ViewBag.Title = "EmployeeDetail";
+    Layout = null;
+}
+
+<!--Adatok megjelenítése-->
+<div class="container">
+    <!--Címsor-->
+    <h3 align="center">Dolgozói Adatok</h3>
+    
+    <!--Employee adatok megjelenítése táblázatban-->
+    <table align="center" class="table table-striped" style="width:40%">
+        <tr>
+            <td>Név:</td>
+            <td>@Model.Name</td>
+        </tr>
+        <tr>
+            <td>Cím:</td>
+            <td>@Model.Adress</td>
+        </tr>
+        <tr>
+            <td>Osztály név:</td>
+            <td>@Model.DepartmentName</td>
+        </tr>
+    </table>
+</div>
