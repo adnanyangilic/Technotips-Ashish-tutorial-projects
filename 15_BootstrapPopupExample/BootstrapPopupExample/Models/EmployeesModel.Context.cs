@@ -25,7 +25,7 @@ namespace BootstrapPopupExample.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Department> Departments { get; set; }
+        public virtual DbSet<Department> Department { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Site> Sites { get; set; }
     }

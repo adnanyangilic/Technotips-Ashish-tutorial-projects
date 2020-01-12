@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model '\\10.31.25.5\ITFejlesztok\Examples\MVC\Tutorial\BootstrapPopupExample\BootstrapPopupExample\Models\EmployeesModel.edmx'. 
+﻿// T4 code generation is enabled for model 'c:\Users\peter.kozak\Documents\asd\15_BootstrapPopupExample\BootstrapPopupExample\Models\EmployeesModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

@@ -1,88 +1,60 @@
-﻿<!--Bootstrap stílus implementálása-->
-<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-
-<!--JQuery Scriptek implementálása-->
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
-<script src="~/Scripts/bootstrap.min.js"></script>
-
-<!--Modell definiálása-->
-@model BootstrapPopupExample.Models.ViewModels.EmployeeViewModel
+﻿@model BootstrapPopupExample.Models.ViewModels.EmployeeViewModel
 
 @{
     ViewBag.Title = "Index";
     Layout = null;
 }
 
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+
 <h2 align="center">Index</h2>
 
-
-<!--Form elkészítése-->
 <div class="container" style="width:40%;margin-top:2%">
-    <!--Popup window megnyitó gomb elkészítése-->
     <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#newEmployeeModal">Popup Window Megnyitása</a>
 
-    <!--Popup window elkészítése-->
     <div class="modal fade" id="newEmployeeModal">
         <div class="modal-dialog">
             <div class="modal-content">
-                <!--Header elkészítése-->
                 <div class="modal-header">
-                    <!--Close button elkészítése a fejléchez-->
                     <a href="#" class="close" data-dismiss="modal">&times;</a>
-                    <!--Címsor kiírása-->
                     <h3 class="modal-title" align="center">Dolgozói adatok</h3>
                 </div>
-                <!--Törzs elkészítése-->
                 <div class="modal-body">
                     <form id="employeeForm">
-                        <!--Legördülős lista létrehozása HTML Helper segítségével-->
-                        <!--Szintaktika(Az elem amit szállítani fogunk, A lista amivel feltöltjük majd, Mit szeretnék kiválaszott elemként látni,
-                            Milyen HTML Dekorált objektumként jelenjen meg)-->
                         @Html.DropDownListFor(@model => model.DepartmentID, TempData["DepartmentsDicitionaryTableElements"] as SelectList, "--- Kérem válaszon! ---", new { @class = "form-control" })
-
-                        <!--TextBox-ok inicializálása-->
                         @Html.TextBoxFor(@model => model.Name, new { @class = "form-control", @placeholder = "Név" })
-
                         @Html.TextBoxFor(@model => model.Adress, new { @class = "form-control", @placeholder = "Cím" })
-
                         @Html.TextBoxFor(@model => model.SiteName, new { @class = "form-control", @placeholder = "Oldal név" })
-
                     </form>
 
-                    <!--Loading gif beszúrása-->
                     <div style="text-align:center;display:none" id="loaderGIFDiv">
                         <img src="~/Content/InternetSlowdown_Day.gif" width="150" />
                     </div>
                 </div>
-                <!--Lábjegyzet/Alsó rész elkészítése-->
                 <div class="modal-footer">
                     <a href="#" class="btn btn-danger" data-dismiss="modal">Vissza</a>
-                    <!--Submit button elkészítése-->
                     <input type="reset" value="Mentés" class="btn btn-primary" id="btnSubmit" />
-
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<!--Adatok rögzítése JQuery AJAX segítségével-->
 <script>
     $(document).ready(function () {
-        /// A btnSubmit Gomb megnyomására fusson le az esemény
         $("#btnSubmit").click(function () {
-            /// Loading Gif engedélyezése
             $("#loaderGIFDiv").show();
 
-            /// A FORM-on található input adatok lekérdezése, amelyet tovább fogunk küldeni
             var data = $("#employeeForm").serialize();
 
-            /// AJAX - Asyncron JavaScript And XML
             $.ajax({
-                type    : "POST",                       /// Kérés típusa
-                url     : "/Example/SaveEmployee",      /// Hol érhető el (Controller/MethodName)
-                data    : data,                         /// Az elküldendő adathalmaz
-                success: function () {                  /// Ha skeresen lefutott az AJAX kérés
+                type: "POST",
+                url: "/Example/SaveEmployee",
+                data: data,
+                success: function () {
                     $("#loaderGIFDiv").hide();
                     $("#newEmployeeModal").modal("hide");
                 }

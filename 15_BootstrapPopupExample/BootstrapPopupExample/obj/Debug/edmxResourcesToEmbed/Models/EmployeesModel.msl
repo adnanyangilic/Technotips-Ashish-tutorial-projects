@@ -3,7 +3,7 @@
   <EntityContainerMapping StorageEntityContainer="EmployeesDBModelStoreContainer" CdmEntityContainer="EmployeesDBEntities">
     <EntitySetMapping Name="Departments">
       <EntityTypeMapping TypeName="IsTypeOf(EmployeesDBModel.Department)">
-        <MappingFragment StoreEntitySet="Departments">
+        <MappingFragment StoreEntitySet="Department">
           <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
@@ -11,7 +11,7 @@
     </EntitySetMapping>
     <EntitySetMapping Name="Employees">
       <EntityTypeMapping TypeName="IsTypeOf(EmployeesDBModel.Employee)">
-        <MappingFragment StoreEntitySet="Employees">
+        <MappingFragment StoreEntitySet="Employee">
           <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />

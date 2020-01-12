@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="EmployeesDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="EmployeesDBModelStoreContainer">
-    <EntitySet Name="Departments" EntityType="EmployeesDBModel.Store.Departments" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Employees" EntityType="EmployeesDBModel.Store.Employees" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Department" EntityType="EmployeesDBModel.Store.Departments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Employee" EntityType="EmployeesDBModel.Store.Employees" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Sites" EntityType="EmployeesDBModel.Store.Sites" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK__Employee__Depart__286302EC" Association="EmployeesDBModel.Store.FK__Employee__Depart__286302EC">
-      <End Role="Department" EntitySet="Departments" />
-      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Employee" EntitySet="Employee" />
     </AssociationSet>
     <AssociationSet Name="FK__Sites__EmployeeI__36B12243" Association="EmployeesDBModel.Store.FK__Sites__EmployeeI__36B12243">
-      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Employee" EntitySet="Employee" />
       <End Role="Sites" EntitySet="Sites" />
     </AssociationSet>
   </EntityContainer>
