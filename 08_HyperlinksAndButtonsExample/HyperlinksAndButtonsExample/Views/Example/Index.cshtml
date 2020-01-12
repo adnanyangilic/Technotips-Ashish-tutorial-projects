@@ -1,7 +1,5 @@
-﻿<!--Bootstrap stílus implementálása-->
-<link href="~/Content/bootstrap.css" rel="stylesheet" />
+﻿<link href="~/Content/bootstrap.css" rel="stylesheet" />
 
-<!--Modell definiálása-->
 @model IEnumerable<HyperlinksAndButtonsExample.Models.ViewModels.EmployeeViewModel>
 
 @{
@@ -13,8 +11,6 @@
 
 @ViewBag.MessageHL
 
-<!--Egyszerű Hyperlinks example-->
-<!--Dolgozók nevei megjelenítése a view-on egyszerű hyperlink formátumban-->
 <div class="container" style="width:30%;margin-top:2%">
     @if(Model != null)
     {
@@ -31,8 +27,6 @@
 
 @ViewBag.MessageHLB
 
-<!--Hyperlinks example Button objektumként-->
-<!--Dolgozók nevei megjelenítése a View-on Button objektumként-->
 <div class="container" style="width:30%;margin-top:2%">
     @if (Model != null)
     {
@@ -40,13 +34,6 @@
             @foreach (var item in Model)
             {
                 <li class="list-group-item">
-                    <!--HTML kóddal megoldva-->
-                    <!--
-                    <a class="btn btn-block btn-primary" href="/Example/EmployeeDetail?EmployeeID=@item.EmployeeID">@item.Name</a>
-                    -->
-
-                    <!--HTML Helper használatával Action link készítése-->
-                    <!--Szintaktika(Link szöveg, Action Name, Paraméterben átadandó Átadandó objektum, HTML attribútum (Hogy jelenjen meg az Action Link))-->
                     @Html.ActionLink(@item.Name, "EmployeeDetail", new { EmployeeID = item.EmployeeID}, new { @class = "btn btn-block btn-success" })
                 </li>
             }
