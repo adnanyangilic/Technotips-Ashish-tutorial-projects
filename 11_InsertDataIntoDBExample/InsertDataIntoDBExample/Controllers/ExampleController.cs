@@ -1,25 +1,22 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
-using InsertDataIntoDBExample.Models;
+﻿using InsertDataIntoDBExample.Models;
 using InsertDataIntoDBExample.Models.ViewModels;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace InsertDataIntoDBExample.Controllers
 {
     public class ExampleController : Controller
     {
-        // GET: Example
         public ActionResult Index()
         {
             ViewBag.MessageAboutHTMLHelper = "A HTML Helper a modell segítségével html elemeket generál";
 
             EmployeesDBEntities db = new EmployeesDBEntities();
 
-            /// Eltároljuk a szótár elemeket, hogy egy SelectListBox-ot fel tudjunk tölteni
-            /// Szintakszis(Átadandó lista, Melyik attribútumot szeretnénk szállítani, melyik attribútumot jelenítsük meg a View-on
-            /// {Kulcs érték párok})
-            ViewBag.DepartmentsDicitionaryTableElements = new SelectList(GetDepartmentsDictionaryTableElements(db), "DepartmentID", "Name");
+            ViewBag.DepartmentsDicitionaryTableElements =
+                new SelectList(GetDepartmentsDictionaryTableElements(db), "DepartmentID", "Name");
 
             return View();
         }
