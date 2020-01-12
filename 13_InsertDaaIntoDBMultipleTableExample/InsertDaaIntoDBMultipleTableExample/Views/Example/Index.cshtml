@@ -1,37 +1,25 @@
-﻿<!--Bootstrap stílus implementálása-->
-<link href="~/Content/bootstrap.css" rel="stylesheet" />
-
-<!--Error Style definiálása-->
-<style>
-    .error {
-        color: red;
-    }
-</style>
-
-<!--Modell definiálása-->
-@model InsertDaaIntoDBMultipleTableExample.Models.ViewModels.EmployeeViewModel
+﻿@model InsertDaaIntoDBMultipleTableExample.Models.ViewModels.EmployeeViewModel
 
 @{
     ViewBag.Title = "Index";
     Layout = null;
 }
 
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<style>
+    .error {
+        color: red;
+    }
+</style>
+
 <h2 align="center">Index</h2>
 
-<!--Form elkészítése-->
 <div class="container" style="width:40%;margin-top:2%">
-
-    <!--Metódus definiálása a Controllerból-->
-    <!--Szintaktika(Metódus név, Controller név, Method Típus)-->
     @using (Html.BeginForm("SaveEmployee", "Example", FormMethod.Post))
     {
-        <!--Legördülős lista létrehozása HTML Helper segítségével-->
-        <!--Szintaktika(Az elem amit szállítani fogunk, A lista amivel feltöltjük majd, Mit szeretnék kiválaszott elemként látni,
-            Milyen HTML Dekorált objektumként jelenjen meg)-->
         @Html.DropDownListFor(@model => model.DepartmentID, TempData["DepartmentsDicitionaryTableElements"] as SelectList, "--- Kérem válaszon! ---", new { @class = "form-control" })
         @Html.ValidationMessageFor(model => model.DepartmentID, "", new { @class = "error" })
 
-        <!--TextBox-ok inicializálása-->
         @Html.TextBoxFor(@model => model.Name, new { @class = "form-control", @placeholder = "Név" })
         @Html.ValidationMessageFor(model => model.Name, "", new { @class = "error" })
 
@@ -41,7 +29,6 @@
         @Html.TextBoxFor(@model => model.SiteName, new { @class = "form-control", @placeholder = "Oldal név" })
         @Html.ValidationMessageFor(model => model.SiteName, "", new { @class = "error" })
 
-        <!--Submit button elkészítése-->
         <input type="submit" value="Mentés" class="btn btn-primary btn-block" />
     }
 </div>
