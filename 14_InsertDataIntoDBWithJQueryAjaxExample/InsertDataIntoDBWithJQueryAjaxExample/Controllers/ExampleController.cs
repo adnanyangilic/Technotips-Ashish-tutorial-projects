@@ -9,29 +9,25 @@ namespace InsertDataIntoDBWithJQueryAjaxExample.Controllers
 {
     public class ExampleController : Controller
     {
-        // GET: Example
         public ActionResult Index()
         {
             ViewBag.MessageAboutHTMLHelper = "A HTML Helper a modell segítségével html elemeket generál";
 
             EmployeesDBEntities db = new EmployeesDBEntities();
 
-            /// Eltároljuk a szótár elemeket, hogy egy SelectListBox-ot fel tudjunk tölteni
-            /// Szintakszis(Átadandó lista, Melyik attribútumot szeretnénk szállítani, melyik attribútumot jelenítsük meg a View-on
-            /// {Kulcs érték párok})
-            TempData["DepartmentsDicitionaryTableElements"] = new SelectList(GetDepartmentsDictionaryTableElements(db), "DepartmentID", "Name");
+            TempData["DepartmentsDicitionaryTableElements"] =
+                new SelectList(GetDepartmentsDictionaryTableElements(db), "DepartmentID", "Name");
             TempData.Keep();
 
             return View();
         }
 
-        [HttpPost]
         /// <summary>
         ///     A Submit gomb megnyomására hívódik meg a metódus, eltárolja az új Employee-t a
         ///     DB-be
         /// </summary>
         /// <param name="employeeInViewableFormat">Az eltárolandó Employee a View-tól</param>
-        /// <returns></returns>
+        [HttpPost]
         public ActionResult SaveEmployee(EmployeeViewModel employeeInViewableFormat)
         {
             TempData.Keep();
@@ -44,11 +40,9 @@ namespace InsertDataIntoDBWithJQueryAjaxExample.Controllers
 
                     Employee employee = CreateEmployeeInDBFormat(employeeInViewableFormat);
 
-                    /// Employee mentése
                     db.Employees.Add(employee);
                     db.SaveChanges();
 
-                    /// Employee-hez tartozó Site mentése
                     db.Sites.Add(CreateSiteInDBFormat(employeeInViewableFormat, employee.EmployeeID));
                     db.SaveChanges();
                 }
