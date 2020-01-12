@@ -1,9 +1,5 @@
 ﻿namespace DBConnectionWithEntityFramework.Models.ViewModels
 {
-    /// <summary>
-    ///     Az Employee típusú objektumok megjelenítéséhez szükséges osztály. 
-    ///     (Azaz csak az Employee táblából kérdezünk le adatokat)
-    /// </summary>
     public class EmployeeViewModel
     {
         public int EmployeeID { get; set; }

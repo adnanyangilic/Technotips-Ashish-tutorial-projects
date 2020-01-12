@@ -10,7 +10,6 @@ namespace DBConnectionWithEntityFramework.Controllers
         // GET: Example
         public ActionResult Index()
         {
-            /// Kapcsolódás az adatbázishoz
             EmployeesDBEntities db = new EmployeesDBEntities();
 
             return View(GetSelectedEmployee(db, 1));
@@ -24,8 +23,6 @@ namespace DBConnectionWithEntityFramework.Controllers
         /// <returns>Az x. ID-jú Employee objektum</returns>
         private EmployeeViewModel GetSelectedEmployee(EmployeesDBEntities db, int id)
         {
-            /// Az 1-es sorszámú Employee típusú objektum lekérdezése az Employee táblából
-            /// Lambda kifejezéssel
             Employee selectedEmployee = db.Employee.SingleOrDefault(x => x.EmployeeID == 1);
 
             return ConvertEmployeeToEmployeeViewModel(selectedEmployee);
