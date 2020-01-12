@@ -1,8 +1,8 @@
-﻿using WorkingWithMultipleTablesExample.Models;
-using WorkingWithMultipleTablesExample.Models.ViewModels;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using System.Collections.Generic;
+using WorkingWithMultipleTablesExample.Models;
+using WorkingWithMultipleTablesExample.Models.ViewModels;
 
 namespace WorkingWithMultipleTablesExample.Controllers
 {
@@ -11,7 +11,6 @@ namespace WorkingWithMultipleTablesExample.Controllers
         // GET: Example
         public ActionResult Index()
         {
-            /// Kapcsolódás az adatbázishoz
             EmployeesDBEntities db = new EmployeesDBEntities();
 
             return View(GetEmployeesData(db));
@@ -24,7 +23,6 @@ namespace WorkingWithMultipleTablesExample.Controllers
         /// <returns>Az összes Employees adat</returns>
         private List<EmployeeViewModel> GetEmployeesData(EmployeesDBEntities db)
         {
-            /// Employee adatok lekérdezése az Employees Táblából
             List<Employee> employees = db.Employees.ToList();
 
             return CreateEmployeeInViewableFormat(employees);
@@ -38,8 +36,6 @@ namespace WorkingWithMultipleTablesExample.Controllers
         /// <returns>Az összes Dolgozói/ Employees adat a megfelelő formátumba</returns>
         private List<EmployeeViewModel> CreateEmployeeInViewableFormat(List<Employee> employees)
         {
-            /// Adathalmaz bejárása lambda kifejezésekkel, és minden sornál, egy új megjeleníthető
-            /// sor generálása
             return employees.Select(x => new EmployeeViewModel
             {
                 EmployeeID = x.EmployeeID,
