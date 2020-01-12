@@ -1,7 +1,4 @@
-﻿<!--Bootstrap stílus implementálása-->
-<link href="~/Content/bootstrap.css" rel="stylesheet" />
-
-@model IEnumerable<RazorViewEngineExample.Models.ViewModels.EmployeeViewModel>
+﻿<link href="~/Content/bootstrap.css" rel="stylesheet" />
 
 @{
     ViewBag.Title = "Index";
@@ -12,23 +9,19 @@
 
 @ViewBag.MessageRVE
 
-<!--RazorViewEngine példa bemutatása-->
 <div class="container" style="width:40%;margin-top:2%">
-    <!--Egyetlen mondat/soros block elkészítése-->
     @{ 
         string question = "Hogy vagy ma?";
 
         <b>Kérdés változó értéke: @question</b>
     }
 
-    <!--Több változós block elkészítése-->
     @{ 
         string message = "Több változós block elkészítése...";
         int i = 2;
         int j = 3;
         int k = i + j;
 
-        <!--A HTML kód elhelyezhető a Block-on belül, de...-->
         <p></p>
         <b>@message</b>
         <div>
@@ -36,20 +29,17 @@
         </div>
     }
 
-    <!--A blockon kívül is elhelyezhetőek-->
     <p></p>
     <b>@message</b>
     <div>
         <b>@i + @j = @k</b>
     </div>
 
-    <!--Mai nap kiírása-->
     <p></p>
     <div>
         A mai nap @DateTime.Now.DayOfWeek van!
     </div>
 
-    <!--Ciklus elkészítése-->
     <p></p>
     <div>Ciklus elkészítése...</div>
 
@@ -60,7 +50,6 @@
         </div>
     }
 
-    <!--IF függvény elkészítése-->
     <p></p>
     <div>IF Függvény elkészítése...</div>
     @{ 
