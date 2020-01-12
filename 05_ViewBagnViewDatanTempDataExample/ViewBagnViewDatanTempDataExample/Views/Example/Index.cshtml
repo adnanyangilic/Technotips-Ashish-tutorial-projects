@@ -2,26 +2,19 @@
 
 @{
     ViewBag.Title = "Index";
-
-    /// Layout ürítése, abból a célból, hogy ne jelenjen meg semmi az Index oldalon
     Layout = null;
 }
 
 <h2>Index</h2>
 
-<!--Üzenet kiírása a felhasználó számára-->
 @ViewBag.MessageAboutVB
 
-<!--ViewBag Example-->
-<!--Dolgozók megjelenítése a felhasználók számára-->
 <table class="table table-striped" style="width:60%" align="center">
-    <!--Fejléc megjelenítése-->
     <tr>
         <th>ID</th>
         <th>Name</th>
         <th>Department</th>
     </tr>
-    <!--Adatok megjelenítése-->
     <tbody>
         @foreach (var item in ViewBag.Employees)
         {
@@ -34,19 +27,14 @@
     </tbody>
 </table>
 
-<!--Üzenet kiírása a felhasználó számára-->
 @ViewBag.MessageAboutVD
 
-<!--ViewData Example-->
-<!--Dolgozók megjelenítése a felhasználók számára-->
 <table class="table table-striped" style="width:60%" align="center">
-    <!--Fejléc megjelenítése-->
     <tr>
         <th>ID</th>
         <th>Name</th>
         <th>Department</th>
     </tr>
-    <!--Adatok megjelenítése-->
     <tbody>
         @foreach (var item in ViewData["Employees"] as List<ViewBagnViewDatanTempDataExample.Models.Employee>)
         {
@@ -59,20 +47,15 @@
     </tbody>
 </table>
 
-<!--Üzenet kiírása a felhasználó számára-->
 @ViewBag.MessageAboutTD
 
-<!--TempData Example-->
 <ul class="list-group">
-    <!--Adat kiírása a ViewBag-ből-->
     <li class="list-group-item">
         ViewBag value is: <b>@ViewBag.EmployeeNameVB</b>
     </li>
-    <!--Adat kiírása a ViewData-ból-->
     <li class="list-group-item">
         TempData value is: <b>@ViewData["EmployeeNameVD"]</b>
     </li>
-    <!--Adat kiírása a TempData-ból-->
     <li class="list-group-item">
         TempData value is: <b>@TempData["EmployeeName"]</b>
     </li>

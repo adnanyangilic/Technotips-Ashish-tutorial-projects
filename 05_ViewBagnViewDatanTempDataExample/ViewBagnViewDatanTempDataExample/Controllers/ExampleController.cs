@@ -1,12 +1,11 @@
-﻿using ViewBagnViewDatanTempDataExample.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
+using ViewBagnViewDatanTempDataExample.Models;
 
 namespace ViewBagnViewDatanTempDataExample.Controllers
 {
     public class ExampleController : Controller
     {
-        // GET: Example
         public ActionResult Index()
         {
             ViewBag.MessageAboutVB = "A ViewBag egy dinamikus konténer amely képes tárolni egy listát " +
@@ -22,13 +21,9 @@ namespace ViewBagnViewDatanTempDataExample.Controllers
                 "egy vagy több kontrolleren, illetve egy vagy több műveleten keresztül. Tehát ha egy VB-t vagy egy VD-t felhasználtunk " +
                 "akkor már nincs lehetőségünk elérni ismételten, a TD-vel ellentétben";
 
-            /// ViewBag Example
             ViewBag.Employees = GetEmployees();
 
-            /// ViewData Example
             ViewData["Employees"] = GetEmployees();
-
-            /// TempData Example
 
             ViewBag.EmployeeNameVB = "Teszt_Elek_With_VB";
 
@@ -37,7 +32,6 @@ namespace ViewBagnViewDatanTempDataExample.Controllers
             TempData["EmployeeName"] = "Teszt_Elek_Width_TD";
             TempData.Keep();
 
-            /// Modell átadása a View-nak
             return View();
         }
 

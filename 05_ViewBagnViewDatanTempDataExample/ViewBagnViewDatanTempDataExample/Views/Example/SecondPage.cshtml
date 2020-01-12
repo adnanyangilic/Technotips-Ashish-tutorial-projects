@@ -2,24 +2,18 @@
 
 @{
     ViewBag.Title = "SecondPage";
-
-    /// Layout ürítése, abból a célból, hogy ne jelenjen meg semmi az Index oldalon
     Layout = null;
 }
 
 <h2>Second Page</h2>
 
-<!--TempData Example-->
 <ul class="list-group">
-    <!--Adat kiírása a ViewBag-ből-->
     <li class="list-group-item">
         ViewBag value is: <b>@ViewBag.EmployeeNameVB</b>
     </li>
-    <!--Adat kiírása a ViewData-ból-->
     <li class="list-group-item">
         TempData value is: <b>@ViewData["EmployeeNameVD"]</b>
     </li>
-    <!--Adat kiírása a TempData-ból-->
     <li class="list-group-item">
         TempData value is: <b>@TempData["EmployeeName"]</b>
     </li>
