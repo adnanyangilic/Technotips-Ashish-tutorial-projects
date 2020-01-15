@@ -8,7 +8,6 @@ namespace PartialViewExample.Controllers
 {
     public class ExampleController : Controller
     {
-        // GET: Example
         public ActionResult Index()
         {
             ViewBag.MessageAboutPartialView = "A Partial View egy visszaállítható/újrahasználható view, azaz képesek vagyunk " +
@@ -112,11 +111,8 @@ namespace PartialViewExample.Controllers
         /// <returns>Dolgozói adatok a View-on megjeleníthető formátumban</returns>
         private List<EmployeeViewModel> GetEmployees(EmployeesDBEntities db)
         {
-            /// Adatok lekérdezése az Employee táblából
             List<Employee> employees = db.Employees.ToList();
 
-            /// A lekérdezett adatokat átalakítjuk a View-on megjeleníthető formátumú objektummá
-            /// amely a Dolgozó Nevét és ID-ját fogja tartalmazni
             List<EmployeeViewModel> employeesInViewableFormat = employees.Select(x => new EmployeeViewModel
             {
                 EmployeeID = x.EmployeeID,
