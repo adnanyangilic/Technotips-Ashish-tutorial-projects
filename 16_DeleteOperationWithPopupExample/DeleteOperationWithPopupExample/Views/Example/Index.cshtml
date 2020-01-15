@@ -1,11 +1,8 @@
-﻿<!--Bootstrap stílus implementálása-->
-<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+﻿<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 
-<!--JQuery Scriptek implementálása-->
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/bootstrap.min.js"></script>
 
-<!--Modell definiálása-->
 @model DeleteOperationWithPopupExample.Models.ViewModels.EmployeeViewModel
 
 @{
@@ -15,30 +12,23 @@
 
 <h2 align="center">Index</h2>
 
-<!--Dolgozó adatainak megjelenítése-->
 <div class="container" style="width:40%;margin-top:2%">
     <table class="table table-responsive">
-        <!--Fejléc elkészítése-->
         <tr>
             <th>Név</th>
             <th>Osztály</th>
             <th>Cím</th>
             <th>Törlés</th>
         </tr>
-        <!--Adatok megjelenítése-->
         <tbody>
-            @if(ViewBag.Employees != null)
+            @if (ViewBag.Employees != null)
             {
-                foreach(var item in ViewBag.Employees)
+                foreach (var item in ViewBag.Employees)
                 {
-                    <!--Minden sort megcímkézzük az EmployeeID-val, annak érdekében, hogyha egy sikeres törlést
-                        hajtunk végre, akkor tudjuk, hogy melyik tábla sort kell kitörölni, azaz melyik ID-jú sorra
-                        hivatkozzunk-->
                     <tr id="row_@item.EmployeeID">
                         <td>@item.Name</td>
                         <td>@item.DepartmentName</td>
                         <td>@item.Adress</td>
-                        <!--Törlés gomb elkészítése-->
                         <td>
                             <a href="#" class="btn btn-danger" onclick="ConfirmDeleteEmployee(@item.EmployeeID)">
                                 <i class="glyphicon glyphicon-trash"></i>
@@ -50,29 +40,21 @@
         </tbody>
     </table>
 
-    <!--Tárolni fogjuk a törlendő EmployeeID-t, hogy mind a két függvény (Confirm&Delete) el tudja érni a törlendő ID-tv -->
     <input type="hidden" id="hiddenEmployeeID" />
 
-    <!--Popup window elkészítése-->
     <div class="modal fade" id="deleteEmployeeModal">
         <div class="modal-dialog">
             <div class="modal-content">
-                <!--Header elkészítése-->
                 <div class="modal-header">
-                    <!--Close button elkészítése a fejléchez-->
                     <a href="#" class="close" data-dismiss="modal">&times;</a>
-                    <!--Címsor kiírása-->
                     <h3 class="modal-title" align="center">Törlés megerősítése</h3>
                 </div>
-                <!--Törzs elkészítése-->
                 <div class="modal-body">
                     <h4>Valóban törölni szeretnéd ezt a dolgozót?</h4>
-                    <!--Loading gif beszúrása-->
                     <div style="text-align:center;display:none" id="loaderGIFDiv">
                         <img src="~/Content/InternetSlowdown_Day.gif" width="150" />
                     </div>
                 </div>
-                <!--Lábjegyzet/Alsó rész elkészítése-->
                 <div class="modal-footer">
                     <a href="#" class="btn btn-danger" data-dismiss="modal">Nem</a>
                     <a href="#" class="btn btn-success" onclick="DeleteEmployee()">Igen</a>
@@ -82,41 +64,28 @@
     </div>
 </div>
 
-<!--Adatok törlése JQuery AJAX segítségével-->
 <script>
-    /// ConfirmDeleteEmployee függvény megvalósítása. Megnyit egy Popup Window-ot,
-    /// amelyben meg kell erősítenie a felhasználónak hogy tényleg szeretné-e azt
-    /// a dolgozót törölni, amelyre rákattintott (Paraméterben megkapja az ID-ját)
     var ConfirmDeleteEmployee = function (EmployeeID) {
-        /// A kiválasztott EmployeeID értékének átadása
         $("#hiddenEmployeeID").val(EmployeeID);
 
-        /// Popup Window Megnyitása
         $("#deleteEmployeeModal").modal('show');
     }
 
-    /// Törlési metódus végrehajtása. Kitörli azt az Employee-t az adatbázisból
-    /// amelynek az ID-ját korábban megkapta
     var DeleteEmployee = function () {
-        /// Loading Gif engedélyezése
         $("#loaderGIFDiv").show();
 
-        /// A korábban a ConfirmDeleteEmployee függvényben a hiddenEmployeeID-nak
-        /// átadott ID-t kiolvassuk
         var employeeID = $("#hiddenEmployeeID").val();
 
-        /// AJAX - Asyncron JavaScript And XML
         $.ajax({
-            type    : "POST",                           /// Kérés típusa
-            url     : "Example/DeleteEmployee",         /// Hol érhető el (Controller/MethodName)
-            data    : { EmployeeID: employeeID },       /// A törlendő objektumok ID-ja JSON adatként
-            success: function (result) {                /// Ha skeresen lefutott az AJAX kérés
+            type: "POST",
+            url: "Example/DeleteEmployee",
+            data: { EmployeeID: employeeID },
+            success: function (result) {
                 $("#loaderGIFDiv").hide();
                 $("#deleteEmployeeModal").modal("hide");
 
-                /// Táblázat frissítése, azaz a row_employeeID-jú sor törlése
                 $("#row_" + employeeID).remove();
             }
-        })
+        });
     }
 </script>
