@@ -8,7 +8,6 @@ namespace PartialViewUsingJQuery.Controllers
 {
     public class ExampleController : Controller
     {
-        // GET: Example
         public ActionResult Index()
         {
             EmployeesDBEntities db = new EmployeesDBEntities();
@@ -53,17 +52,13 @@ namespace PartialViewUsingJQuery.Controllers
         /// <returns>True - Ha sikeres a törlés; False - Ha sikertelen</returns>
         private bool DeleteEmployeeFromDB(EmployeesDBEntities db, int EmployeeID)
         {
-            /// Objektumok lekérdezése a táblákból
             Site deleteSiteRow = GetDeleteSiteRow(db, EmployeeID);
             Employee deleteEmployeeRow = GetDeleteEmployeeRow(db, EmployeeID);
 
-            /// Ha minden objektum megtalálható az adott, hozzá tartozó táblákban, akkor...
             if (deleteSiteRow != null && deleteEmployeeRow != null)
             {
-                /// Site táblából töröljük, az adott EmployeeID-jú sort
                 DeleteSiteRowInSiteTable(db, deleteSiteRow);
 
-                /// Employee táblából töröljük az adott EmployeeID-jú sort
                 DeleteEmployeeRowInEmployeeTable(db, deleteEmployeeRow);
 
                 return true;
@@ -113,11 +108,8 @@ namespace PartialViewUsingJQuery.Controllers
         /// <returns>Dolgozói adatok a View-on megjeleníthető formátumban</returns>
         private List<EmployeeViewModel> GetEmployees(EmployeesDBEntities db)
         {
-            /// Adatok lekérdezése az Employee táblából
             List<Employee> employees = db.Employees.ToList();
 
-            /// A lekérdezett adatokat átalakítjuk a View-on megjeleníthető formátumú objektummá
-            /// amely a Dolgozó Nevét és ID-ját fogja tartalmazni
             List<EmployeeViewModel> employeesInViewableFormat = employees.Select(x => new EmployeeViewModel
             {
                 EmployeeID = x.EmployeeID,
