@@ -9,7 +9,6 @@ namespace AddEditRecordExample.Controllers
 {
     public class ExampleController : Controller
     {
-        // GET: Example
         public ActionResult Index()
         {
             EmployeesDBEntities db = new EmployeesDBEntities();
@@ -46,14 +45,9 @@ namespace AddEditRecordExample.Controllers
         {
             EmployeesDBEntities db = new EmployeesDBEntities();
             
-            /// Eltároljuk a szótár elemeket, hogy egy SelectListBox-ot fel tudjunk tölteni
-            /// Szintakszis(Átadandó lista, Melyik attribútumot szeretnénk szállítani, melyik attribútumot jelenítsük meg a View-on
-            /// {Kulcs érték párok})
             TempData["DepartmentsDicitionaryTableElements"] = new SelectList(GetDepartmentsDictionaryTableElements(db), "DepartmentID", "Name");
             TempData.Keep();
 
-            /// Vizsgálat, hogy új Employee-t szeretnénk létrehozni, vagy pedig meglévőt szeretnénk
-            /// szerkeszteni
             if(EmployeeID != 0)
             {
                 return PartialView("EditOrNewEmployee", GetSelectedEmployee(db, EmployeeID));
@@ -64,13 +58,13 @@ namespace AddEditRecordExample.Controllers
             }
         }
 
-        [HttpPost]
         /// <summary>
         ///     A menés gomb megnyomására hívódik meg a metódus. Ha az EmployeeID-ja 0 akkor
         ///     új adatot rögzítünk, ha pedig ID > 0 akkor frissítjük az adatokat
         /// </summary>
         /// <param name="employeeInViewableFormat">Az eltárolandó Employee a View-tól</param>
         /// <returns></returns>
+        [HttpPost]
         public ActionResult SaveEmployee(EmployeeViewModel employeeInViewableFormat)
         {
             try
@@ -104,11 +98,9 @@ namespace AddEditRecordExample.Controllers
         {
             Employee employee = CreateEmployeeInDBFormat(employeeInViewableFormat);
 
-            /// Employee mentése
             db.Employees.Add(employee);
             db.SaveChanges();
 
-            /// Employee-hez tartozó Site mentése
             db.Sites.Add(CreateSiteInDBFormat(employeeInViewableFormat, employee.EmployeeID));
             db.SaveChanges();
         }
@@ -202,17 +194,13 @@ namespace AddEditRecordExample.Controllers
         /// <returns>True - Ha sikeres a törlés; False - Ha sikertelen</returns>
         private bool DeleteEmployeeFromDB(EmployeesDBEntities db, int EmployeeID)
         {
-            /// Objektumok lekérdezése a táblákból
             Site deleteSiteRow = GetDeleteSiteRow(db, EmployeeID);
             Employee deleteEmployeeRow = GetDeleteEmployeeRow(db, EmployeeID);
 
-            /// Ha minden objektum megtalálható az adott, hozzá tartozó táblákban, akkor...
             if (deleteSiteRow != null && deleteEmployeeRow != null)
             {
-                /// Site táblából töröljük, az adott EmployeeID-jú sort
                 DeleteSiteRowInSiteTable(db, deleteSiteRow);
 
-                /// Employee táblából töröljük az adott EmployeeID-jú sort
                 DeleteEmployeeRowInEmployeeTable(db, deleteEmployeeRow);
 
                 return true;
@@ -262,11 +250,8 @@ namespace AddEditRecordExample.Controllers
         /// <returns>Dolgozói adatok a View-on megjeleníthető formátumban</returns>
         private List<EmployeeViewModel> GetEmployees(EmployeesDBEntities db)
         {
-            /// Adatok lekérdezése az Employee táblából
             List<Employee> employees = db.Employees.ToList();
 
-            /// A lekérdezett adatokat átalakítjuk a View-on megjeleníthető formátumú objektummá
-            /// amely a Dolgozó Nevét és ID-ját fogja tartalmazni
             List<EmployeeViewModel> employeesInViewableFormat = employees.Select(x => new EmployeeViewModel
             {
                 EmployeeID = x.EmployeeID,
