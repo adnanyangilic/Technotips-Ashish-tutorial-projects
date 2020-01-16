@@ -9,7 +9,6 @@ namespace LayoutViewExample.Controllers
 {
     public class ExampleController : Controller
     {
-        // GET: Example
         public ActionResult Index()
         {
             EmployeesDBEntities db = new EmployeesDBEntities();
@@ -53,14 +52,9 @@ namespace LayoutViewExample.Controllers
         {
             EmployeesDBEntities db = new EmployeesDBEntities();
 
-            /// Eltároljuk a szótár elemeket, hogy egy SelectListBox-ot fel tudjunk tölteni
-            /// Szintakszis(Átadandó lista, Melyik attribútumot szeretnénk szállítani, melyik attribútumot jelenítsük meg a View-on
-            /// {Kulcs érték párok})
             TempData["DepartmentsDicitionaryTableElements"] = new SelectList(GetDepartmentsDictionaryTableElements(db), "DepartmentID", "Name");
             TempData.Keep();
 
-            /// Vizsgálat, hogy új Employee-t szeretnénk létrehozni, vagy pedig meglévőt szeretnénk
-            /// szerkeszteni
             if (EmployeeID != 0)
             {
                 return PartialView("EditOrNewEmployee", GetSelectedEmployee(db, EmployeeID));
@@ -111,11 +105,9 @@ namespace LayoutViewExample.Controllers
         {
             Employee employee = CreateEmployeeInDBFormat(employeeInViewableFormat);
 
-            /// Employee mentése
             db.Employee.Add(employee);
             db.SaveChanges();
 
-            /// Employee-hez tartozó Site mentése
             db.Sites.Add(CreateSiteInDBFormat(employeeInViewableFormat, employee.EmployeeID));
             db.SaveChanges();
         }
@@ -209,17 +201,13 @@ namespace LayoutViewExample.Controllers
         /// <returns>True - Ha sikeres a törlés; False - Ha sikertelen</returns>
         private bool DeleteEmployeeFromDB(EmployeesDBEntities db, int EmployeeID)
         {
-            /// Objektumok lekérdezése a táblákból
             Sites deleteSiteRow = GetDeleteSiteRow(db, EmployeeID);
             Employee deleteEmployeeRow = GetDeleteEmployeeRow(db, EmployeeID);
 
-            /// Ha minden objektum megtalálható az adott, hozzá tartozó táblákban, akkor...
             if (deleteSiteRow != null && deleteEmployeeRow != null)
             {
-                /// Site táblából töröljük, az adott EmployeeID-jú sort
                 DeleteSiteRowInSiteTable(db, deleteSiteRow);
 
-                /// Employee táblából töröljük az adott EmployeeID-jú sort
                 DeleteEmployeeRowInEmployeeTable(db, deleteEmployeeRow);
 
                 return true;
@@ -269,11 +257,8 @@ namespace LayoutViewExample.Controllers
         /// <returns>Dolgozói adatok a View-on megjeleníthető formátumban</returns>
         private List<EmployeeViewModel> GetEmployees(EmployeesDBEntities db)
         {
-            /// Adatok lekérdezése az Employee táblából
             List<Employee> employees = db.Employee.ToList();
 
-            /// A lekérdezett adatokat átalakítjuk a View-on megjeleníthető formátumú objektummá
-            /// amely a Dolgozó Nevét és ID-ját fogja tartalmazni
             List<EmployeeViewModel> employeesInViewableFormat = employees.Select(x => new EmployeeViewModel
             {
                 EmployeeID = x.EmployeeID,
