@@ -68,3 +68,46 @@ c:\Users\kozakp\Documents\Visual Studio 2015\Projects\PreviewImageBeforeUpload\P
 c:\Users\kozakp\Documents\Visual Studio 2015\Projects\PreviewImageBeforeUpload\PreviewImageBeforeUpload\obj\Debug\PreviewImageBeforeUpload.csproj.CoreCompileInputs.cache
 c:\Users\kozakp\Documents\Visual Studio 2015\Projects\PreviewImageBeforeUpload\PreviewImageBeforeUpload\obj\Debug\PreviewImageBeforeUpload.dll
 c:\Users\kozakp\Documents\Visual Studio 2015\Projects\PreviewImageBeforeUpload\PreviewImageBeforeUpload\obj\Debug\PreviewImageBeforeUpload.pdb
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\roslyn\csc.exe
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\roslyn\Microsoft.CodeAnalysis.dll
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\roslyn\Microsoft.CSharp.Core.targets
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\roslyn\Microsoft.VisualBasic.Core.targets
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\roslyn\System.Collections.Immutable.dll
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\roslyn\System.Reflection.Metadata.dll
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\roslyn\vbc.exe
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\roslyn\VBCSCompiler.exe
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\roslyn\VBCSCompiler.exe.config
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\PreviewImageBeforeUpload.dll.config
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\PreviewImageBeforeUpload.dll
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\PreviewImageBeforeUpload.pdb
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\Antlr3.Runtime.dll
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\Microsoft.Owin.dll
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\Microsoft.Web.Infrastructure.dll
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\Newtonsoft.Json.dll
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\Owin.dll
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\System.Web.Helpers.dll
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\System.Web.Mvc.dll
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\System.Web.Optimization.dll
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\System.Web.Razor.dll
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\System.Web.WebPages.Deployment.dll
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\System.Web.WebPages.dll
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\System.Web.WebPages.Razor.dll
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\WebGrease.dll
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\System.Web.Helpers.xml
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\System.Web.Mvc.xml
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\System.Web.Optimization.xml
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\System.Web.Razor.xml
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\System.Web.WebPages.xml
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\System.Web.WebPages.Deployment.xml
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\System.Web.WebPages.Razor.xml
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\Antlr3.Runtime.pdb
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\Newtonsoft.Json.xml
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\bin\Microsoft.Owin.xml
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\obj\Debug\PreviewImageBeforeUpload.csproj.CopyComplete
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\obj\Debug\PreviewImageBeforeUpload.dll
+c:\Users\peter.kozak\Documents\Test\32_PreviewImageBeforeUpload\PreviewImageBeforeUpload\obj\Debug\PreviewImageBeforeUpload.pdb
