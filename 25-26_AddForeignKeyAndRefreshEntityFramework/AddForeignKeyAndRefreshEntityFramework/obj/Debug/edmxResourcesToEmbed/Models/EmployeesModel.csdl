@@ -64,5 +64,43 @@
       <End Role="Employee" EntitySet="Employees" />
       <End Role="Sites" EntitySet="Sites" />
     </AssociationSet>
+    <EntitySet Name="SiteUsers" EntityType="EmployeesDBModel.SiteUser" />
+    <EntitySet Name="UserRoles" EntityType="EmployeesDBModel.UserRole" />
+    <AssociationSet Name="FK_SiteUser_UserRole" Association="EmployeesDBModel.FK_SiteUser_UserRole">
+      <End Role="UserRole" EntitySet="UserRoles" />
+      <End Role="SiteUser" EntitySet="SiteUsers" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="SiteUser">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EmailID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="RoleID" Type="Int32" />
+    <NavigationProperty Name="UserRole" Relationship="EmployeesDBModel.FK_SiteUser_UserRole" FromRole="SiteUser" ToRole="UserRole" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SiteUsers" Relationship="EmployeesDBModel.FK_SiteUser_UserRole" FromRole="UserRole" ToRole="SiteUser" />
+  </EntityType>
+  <Association Name="FK_SiteUser_UserRole">
+    <End Type="EmployeesDBModel.UserRole" Role="UserRole" Multiplicity="0..1" />
+    <End Type="EmployeesDBModel.SiteUser" Role="SiteUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="SiteUser">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>
