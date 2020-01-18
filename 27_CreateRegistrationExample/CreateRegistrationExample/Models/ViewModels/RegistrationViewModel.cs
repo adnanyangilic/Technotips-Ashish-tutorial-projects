@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CreateRegistrationExample.Models.ViewModels
+﻿namespace CreateRegistrationExample.Models.ViewModels
 {
     public class RegistrationViewModel
     {
@@ -11,7 +9,5 @@ namespace CreateRegistrationExample.Models.ViewModels
         public string Password { get; set; }
 
         public string Adress { get; set; }
-
-        public Nullable<int> RoleID { get; set; }
     }
 }
