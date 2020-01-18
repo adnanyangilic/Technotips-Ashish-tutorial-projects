@@ -5,21 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Example Application</title>
 
-    <!--Betölti az összes CSS fájl-t és Script-et amire nekünk szükségünk van-->
-    <!--Lásd tovább BundleConfig.cs fájl-t...-->
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body>
-    <!--Navigációs Bar elkészítése-->
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
-
-            <!--A gombok egy csoportba való gyűjtése-->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <!--Home gomb elkészítése-->
                     @if (Session["UserID"] != null)
                     {
                         <li><a href="/Example/Index"><span class="glyphicon glyphicon-home"></span></a></li>
@@ -29,7 +22,6 @@
                         <li><a href="/Home/Index"><span class="glyphicon glyphicon-home"></span></a></li>
                     }
 
-                    <!-- A szolgáltatások üsszegyűjtése egy lenyíló fülbe -->
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Szolgáltatások <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu" id="myTab">
@@ -40,13 +32,10 @@
                             <li role="presentation"><a href="#website" aria-controls="website" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-cloud"> </span> Weboldal Design</a></li>
                         </ul>
                     </li>
-                    <!--Rólunk gomb elkészítése-->
                     <li><a href="#">Rólunk</a></li>
-                    <!--Karrier gomb elkészítése-->
                     <li><a href="#">Karrier</a></li>
                 </ul>
 
-                <!--Keresés mező és Keresés gomb elkészítése-->
                 <form class="navbar-form navbar-left" role="search">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Keresés">
@@ -54,12 +43,8 @@
                     <button type="submit" class="btn btn-default">Keres</button>
                 </form>
 
-                <!--Vizsgálat, hogy a Session-ban már van-e eltárolva bejelentkezett
-                    felhasználó, hiszen a fejléc jobb sarkát ennek függvényében fogjuk
-                    megjeleníteni-->
                 @if (Session["UserID"] != null)
                 {
-                    <!--Üdvözlő és Kijelentkezés gomb elkészítése-->
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#">Üdvözöllek: @Session["UserName"]</a></li>
                         <li><a href="/Example/Logout">Kijelentkezés</a></li>
@@ -67,7 +52,6 @@
                 }
                 else
                 {
-                    <!--Bejelentkezés és Regisztrációs gomb elkészítése-->
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="/Example/Login">Bejelentkezés</a></li>
                         <li><a href="/Example/Registration">Regisztráció</a></li>
@@ -84,7 +68,6 @@
         <hr />
     </div>
 
-    <!--Lábléc elkészítése-->
     <div class="well" style="background-color:#000000;color:wheat;margin-bottom:0px">
         <div class="col-lg-4" style="margin-left:20px">
             <h3><span class="glyphicon glyphicon-map-marker"></span> Cím</h3>
@@ -119,9 +102,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
 
-    <!--SCRIPT-ek implementálása-->
     <script src="~/Scripts/jquery.validate.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
     @RenderSection("scripts", required: false)
 </body>

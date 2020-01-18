@@ -4,9 +4,6 @@
     ViewBag.Title = "Index";
 }
 
-<!--Egy sorban 4 képet jelenítünk meg egymás mellett, melyek reszponzívan jelennek meg.
-    Egy sorban a col-md-x összege nem haladhatja meg a 12-őt. Összesen 12 kell hogy legyen
-    az összege, ennek megfelelően fogja feldarabolni a képernyőt-->
 <div class="panel panel-body">
     <div class="col-md-3">
         <img class="img-responsive" src="~/Content/Images/index.jpg" />
@@ -23,28 +20,22 @@
 </div>
 
 <div class="panel panel-body">
-    <!--Oldalsó menüsáv elkészítése.-->
     <div class="col-md-3">
         @{ Html.RenderAction("SideMenu", "Example");}
     </div>
 
-    <!--Content elkészítése-->
-    <div class="col-md-9">  
-        <!--Vizsgálat, hogy a Modell tartalma nem üres-e-->
+    <div class="col-md-9">
         @if (Model != null)
         {
             <h3 align="center">
                 A modellek egymásba ágyazását bemutató taratalom.
                 Lásd a megvalósítást a forráskódban!
             </h3>
-            <!--Kor megjelenítése-->
+
             <h4>Kor: @Model.Age</h4>
 
-            <!--Bal oldali táblázat elkészítése-->
             <div class="col-md-6">
                 <ul class="list-group">
-                    <!--A modell-ben található AModell típusú lista bejárása,
-                        a név kiírásáért-->
                     @foreach (var item in Model.AModelsList)
                     {
                         <li class="list-group-item">@item.Name</li>
@@ -52,16 +43,13 @@
                 </ul>
             </div>
 
-            <!--Jobb oldali táblázat elkészítése-->
             <div class="col-md-6">
                 <ul class="list-group">
-                    <!--A modell-ben található BModell típusú lista bejárása,
-                        az ország kiírásáért-->
                     @foreach (var item in Model.BModelsList)
                     {
                         <li class="list-group-item">@item.Country</li>
                     }
-                 </ul>
+                </ul>
             </div>
         }
     </div>
