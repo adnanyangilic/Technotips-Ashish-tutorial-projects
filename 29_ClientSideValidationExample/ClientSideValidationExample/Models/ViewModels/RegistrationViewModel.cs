@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ClientSideValidationExample.Models.ViewModels
+﻿namespace ClientSideValidationExample.Models.ViewModels
 {
     public class RegistrationViewModel
     {
@@ -11,7 +9,5 @@ namespace ClientSideValidationExample.Models.ViewModels
         public string Password { get; set; }
 
         public string Adress { get; set; }
-
-        public Nullable<int> RoleID { get; set; }
     }
 }

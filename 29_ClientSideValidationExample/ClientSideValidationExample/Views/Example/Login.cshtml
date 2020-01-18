@@ -1,28 +1,19 @@
-﻿<!--Modell definiálása-->
-@model ClientSideValidationExample.Models.ViewModels.LoginViewModel
+﻿@model ClientSideValidationExample.Models.ViewModels.LoginViewModel
 
 @{
     ViewBag.Title = "Bejelentkezés";
 }
 
-<!--Menü elkészítése. Jobb oldal-t menüsáv, bal oldalt pedig a tartalom-->
 <div class="panel panel-body">
-    <!--Jobb oldalsó rész elkészítése, azaz a "Menüsáv" elkészítése-->
     <div class="col-md-3">
         <div class="panel panel-default">
-
-            <!--Menüsáv elkészítése-->
             <div class="thumbnail">
-
-                <!--Menüsáv fejlécének elkészítése-->
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <!--Menüsáv fejléc-->
                         <h3 class="panel-title">Üzenet</h3>
                     </div>
                 </div>
 
-                <!--Menüsáv törzsének elkészítése-->
                 <img src="~/Content/Images/picture12415890781875.png" alt="..." style="margin-top:-20px" />
                 <div class="caption">
                     <h3>Az Igazgató</h3>
@@ -33,28 +24,22 @@
         </div>
     </div>
 
-    <!--Content elkészítése-->
     <div class="col-md-9" align="center">
-        <!--Űrlap elkészítése-->
         <form id="loginForm">
-            <!--Űrlap címének megjelenítése-->
             <h2 align="center">Bejelentkezés</h2>
 
-            <!--E-mail TextBox mező elkészítése-->
             <div class="form-group">
                 <div class="col-md-12">
                     @Html.TextBoxFor(m => Model.EmailID, new { @class = "form-control", @placeholder = "E-mail cím" })
                     @Html.ValidationMessageFor(m => Model.EmailID, "", new { @class = "text-danger" })
                 </div>
             </div>
-            <!--Password passwordbox mező elkészítése-->
             <div class="form-group">
                 <div class="col-md-12">
                     @Html.PasswordFor(m => Model.Password, new { @class = "form-control", @placeholder = "Jelszó" })
                     @Html.ValidationMessageFor(m => Model.Password, "", new { @class = "text-danger" })
                 </div>
             </div>
-            <!--Bejelentkezés gomb elkészítése mező elkészítése-->
             <div class="form-group">
                 <div class="col-md-12">
                     <a href="#" class="btn btn-primary" onclick="LoginUser()">
@@ -67,31 +52,24 @@
     </div>
 </div>
 
-<!--Gomb Scriptek definiálása-->
 <script>
-    /// UserRegistration függvény megvalósítása. AJAX Kérés segítségével, meg fog hívni
-    /// egy metódust, amely elmenti a felhasználó által megadott adatokat az adatbázisba
-    var LoginUser = function () {
-
-        /// A felhasználó által megadott adatok kiolvasása, az
-        /// input mezőkből
+    var LoginUser = function() {
         var data = $("#loginForm").serialize();
 
         /*
         /// *************************************************
         /// ******** A validáció egyik formája **************
         /// *************************************************
-        var EmailID = $("#EmailID").val();
-        var Password = $("#Password").val();
+        var emailId = $("#EmailID").val();
+        var password = $("#Password").val();
 
-        /// Vizsgálat, hogy az E-mail illetve a Jelszó mező ki van-e töltve
-        if (EmailID == "" || EmailID == undefined)
+        if (emailId === "" || emailId === undefined)
         {
             alert("Kérem töltse ki az E-mail mezőt!");
 
             return false;
         }
-        else if (Password == "" || Password == undefined)
+        else if (password === "" || password === undefined)
         {
             alert("Kérem töltse ki a jelszó mezőt!");
 
@@ -99,37 +77,23 @@
         }
         */
 
-        /// Vizsgálat, hogy az általunk elkészített Form valid-e
-        if (!$("#loginForm").valid())
-        {
+        if (!$("#loginForm").valid()) {
             return false;
         }
 
-        /// AJAX - Asyncron JavaScript And XML
         $.ajax({
-            type    :   "POST",                             /// Kérés típusa
-            url     :   "/Example/LoginUser",               /// Hol érhető el (Controller/MethodName)
-            data    :    data,                              /// A controller-nek átadandó adathalmaz
-            success : function (response) {                 /// Ha sikeresen lefutott az AJAX kérés
-                /// A kérés visszatérési értékének függően navigálunk
-                /// a további oldalakra
-                if (response == "NotFound")
-                {
-                    /// Hibás login esetén
+            type: "POST",
+            url: "/Example/LoginUser",
+            data: data,
+            success: function(response) {
+                if (response === "NotFound") {
                     window.location.href = "/Example/Login";
-                }
-                else if (response == "Admin")
-                {
-                    /// Admin login esetén
+                } else if (response === "Admin") {
                     window.location.href = "/Example/Admin";
-                }
-                else
-                {
-                    /// User login esetén
+                } else {
                     window.location.href = "/Example/Index";
                 }
             }
-        })
+        });
     }
 </script>
-
