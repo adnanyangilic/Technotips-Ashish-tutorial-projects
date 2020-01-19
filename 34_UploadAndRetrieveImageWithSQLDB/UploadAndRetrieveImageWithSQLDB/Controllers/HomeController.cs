@@ -11,14 +11,6 @@ namespace UploadAndRetrieveImageWithSQLDB.Controllers
     {
         public ActionResult Index()
         {
-            /// Vizsgálat, hogy volt-e már bejelentkezett felhasználó,
-            /// mert akkor a bejelentkeztetett Index-et jelenítjük meg
-            /// a User-nak
-            if (Session["UserID"] != null)
-            {
-                return RedirectToAction("../Example/Index");
-            }
-
             return View();
         }
 
@@ -39,17 +31,14 @@ namespace UploadAndRetrieveImageWithSQLDB.Controllers
             HttpPostedFileWrapper file = null;
 
             int lastUploadedImageID = 0;
-            
-            /// Modellből lekérdezzük a feltöltendő fájl adatait
+
             file = productViewModel.ImageFile;
 
-            /// Vizsgálat, hogy a fájl-t sikeresen megkaptuk-e
             if (file != null)
             {
                 lastUploadedImageID = SaveFileOnSQLDB(db, file);
             }
 
-            /// JSON Objektum, amely tartalmazza a feltöltött fájl nevét a webszerveren
             return Json(lastUploadedImageID, JsonRequestBehavior.AllowGet);
         }
 
@@ -75,16 +64,12 @@ namespace UploadAndRetrieveImageWithSQLDB.Controllers
         /// <returns>A legutóbb feltöltött fájl ID-ja</returns>
         private int SaveFileOnSQLDB(EmployeesDBEntities db, HttpPostedFileWrapper file)
         {
-            /// Fájl kiolvasása az InputStream-ből
             BinaryReader binaryReader = new BinaryReader(file.InputStream);
             string directoryName = "/UploadedImage/";
             string fileName = Path.GetFileName(file.FileName);
 
-            /// Objektum, amely az adatbázisnak megfelelő objektumként áll elő
             ImageStore image = CreateANewImageForDB(fileName, binaryReader.ReadBytes(file.ContentLength), directoryName + fileName);
 
-            /// A korábban elkészített objektum hozzáadása a megfelelő táblához
-            /// majd adatbázis mentés
             db.ImageStores.Add(image);
             db.SaveChanges();
 
