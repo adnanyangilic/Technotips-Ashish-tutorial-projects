@@ -68,3 +68,46 @@ c:\Users\kozakp\Documents\Visual Studio 2015\Projects\AttribueRoutingExample\Att
 c:\Users\kozakp\Documents\Visual Studio 2015\Projects\AttribueRoutingExample\AttribueRoutingExample\obj\Debug\AttribueRoutingExample.csproj.CoreCompileInputs.cache
 c:\Users\kozakp\Documents\Visual Studio 2015\Projects\AttribueRoutingExample\AttribueRoutingExample\obj\Debug\AttribueRoutingExample.dll
 c:\Users\kozakp\Documents\Visual Studio 2015\Projects\AttribueRoutingExample\AttribueRoutingExample\obj\Debug\AttribueRoutingExample.pdb
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\obj\Debug\AttribueRoutingExample.dll
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\obj\Debug\AttribueRoutingExample.pdb
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\roslyn\csc.exe
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\roslyn\vbc.exe
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\roslyn\VBCSCompiler.exe
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\AttribueRoutingExample.dll.config
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\AttribueRoutingExample.dll
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\AttribueRoutingExample.pdb
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\Antlr3.Runtime.dll
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\Microsoft.Owin.dll
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\Newtonsoft.Json.dll
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\Owin.dll
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\System.Web.Helpers.dll
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\System.Web.Mvc.dll
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\System.Web.Optimization.dll
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\System.Web.Razor.dll
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\System.Web.WebPages.Deployment.dll
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\System.Web.WebPages.dll
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\System.Web.WebPages.Razor.dll
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\WebGrease.dll
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\System.Web.Helpers.xml
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\System.Web.Mvc.xml
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\System.Web.Optimization.xml
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\System.Web.Razor.xml
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\System.Web.WebPages.xml
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\System.Web.WebPages.Deployment.xml
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\System.Web.WebPages.Razor.xml
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\Antlr3.Runtime.pdb
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\Newtonsoft.Json.xml
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\bin\Microsoft.Owin.xml
+C:\Users\peter.kozak\Documents\Test\38_AttribueRoutingExample\AttribueRoutingExample\obj\Debug\AttribueRoutingExample.csproj.CopyComplete

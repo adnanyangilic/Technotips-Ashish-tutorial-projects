@@ -1,13 +1,7 @@
-﻿<!--Modell definiálása-->
-
-
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
 
-<!--Egy sorban 4 képet jelenítünk meg egymás mellett, melyek reszponzívan jelennek meg.
-    Egy sorban a col-md-x összege nem haladhatja meg a 12-őt. Összesen 12 kell hogy legyen
-    az összege, ennek megfelelően fogja feldarabolni a képernyőt-->
 <div class="panel panel-body">
     <div class="col-md-3">
         <img class="img-responsive" src="~/Content/Images/index.jpg" />
@@ -24,11 +18,5 @@
 </div>
 
 <div class="panel panel-body">
-    <!--Oldalsó menüsáv elkészítése.-->
-    <div class="col-md-3">
-        @{ Html.RenderAction("SideMenu", "Example");}
-    </div>
-
-
 
 </div>

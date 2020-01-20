@@ -9,7 +9,6 @@ namespace AttribueRoutingExample
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            /// MVC Attribute Routing engedélyezése
             routes.MapMvcAttributeRoutes();
 
             routes.MapRoute(

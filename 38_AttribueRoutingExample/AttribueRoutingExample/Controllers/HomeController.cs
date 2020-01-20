@@ -2,24 +2,11 @@
 
 namespace AttribueRoutingExample.Controllers
 {
-    /// [RouteArea("City")]         -> Definiáljuk, hogy melyik RouteArea-ba tartozzon a kontrollers
-    /// [RoutePrefix("Home")]       -> Default Route definiálása (Controller Name)
-    /// [Route("{action=Index}")]   -> Default action definiálása (Method Name) 
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
-            /// Vizsgálat, hogy volt-e már bejelentkezett felhasználó,
-            /// mert akkor a bejelentkeztetett Index-et jelenítjük meg
-            /// a User-nak
-            if (Session["UserID"] != null)
-            {
-                return RedirectToAction("../Example/Index");
-            }
-            else
-            {
-                return View();
-            }
+            return View();
         }
 
         /// <summary>
@@ -46,7 +33,7 @@ namespace AttribueRoutingExample.Controllers
         {
             return "A(z) " + ID + ". ID-jú Tanuló Rekordja";
         }
-        
+
         /// <summary>
         ///     ../{Name}          -> Szükséges átadni paramétert, különben Exception-t dob
         ///     ../{Name?}         -> Nem szükséges átadni paramétert, nem dob Exception-t
