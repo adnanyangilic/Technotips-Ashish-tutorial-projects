@@ -12,9 +12,8 @@ namespace AddSearchFunctionality.Controllers
     {
         private const int USERID = 3;
 
-        #region Ajax hívás által használt metódusok
+        #region PUBLIC Methods
 
-        // GET: Example
         public ActionResult Index()
         {
             EmployeesDBEntities db = new EmployeesDBEntities();
@@ -24,7 +23,6 @@ namespace AddSearchFunctionality.Controllers
             return View();
         }
 
-        // GET: Második oldal Page
         public ActionResult SecondPage()
         {
             ViewBag.Message = "Hey! Üdvözöllek a második oldalon!";
@@ -32,26 +30,21 @@ namespace AddSearchFunctionality.Controllers
             return View();
         }
 
-        // GET Regisztráció Page
         public ActionResult Registration()
         {
             return View();
         }
 
-        // GET Bejelentkezés Page
         public ActionResult Login()
         {
             return View();
         }
 
-        // GET Kijelentkezés
         public ActionResult Logout()
         {
-            /// Sessionból töröljük az adatokat
             Session.Clear();
             Session.Abandon();
 
-            /// Navigálás a Login oldalra
             return RedirectToAction("Login");
         }
 
@@ -82,14 +75,9 @@ namespace AddSearchFunctionality.Controllers
         {
             EmployeesDBEntities db = new EmployeesDBEntities();
 
-            /// Eltároljuk a szótár elemeket, hogy egy SelectListBox-ot fel tudjunk tölteni
-            /// Szintakszis(Átadandó lista, Melyik attribútumot szeretnénk szállítani, melyik attribútumot jelenítsük meg a View-on
-            /// {Kulcs érték párok})
             TempData["DepartmentsDicitionaryTableElements"] = new SelectList(GetDepartmentsDictionaryTableElements(db), "DepartmentID", "Name");
             TempData.Keep();
 
-            /// Vizsgálat, hogy új Employee-t szeretnénk létrehozni, vagy pedig meglévőt szeretnénk
-            /// szerkeszteni
             if (EmployeeID != 0)
             {
                 return PartialView("EditOrNewEmployee", GetSelectedEmployee(db, EmployeeID));
@@ -175,13 +163,10 @@ namespace AddSearchFunctionality.Controllers
         {
             EmployeesDBEntities db = new EmployeesDBEntities();
 
-            /// Új User regisztrálása
             RegisterNewUserInDB(db, registrationViewModel);
 
-            /// Navigációs URL elkészítése az AJAX számára
             var createRedirectToViewURL = new UrlHelper(Request.RequestContext).Action("Index", "Example");
 
-            /// Navigációs URL visszatérítése a VIEW oldalnak (JSON Objektumként)
             return Json(new { Url = createRedirectToViewURL });
         }
 
@@ -200,15 +185,11 @@ namespace AddSearchFunctionality.Controllers
 
             SiteUser user = GetSearchLoginUser(db, loginViewModel);
 
-            /// Ellenőrzés, hogy volt-e ilyen felhasználó - jelszó páros az adatbázisban
             if (user != null)
             {
-                /// Session-ben eltároljuk a felhasználói adatokat
                 Session["UserID"] = user.UserID;
                 Session["UserName"] = user.UserName;
 
-                /// Beállítjuk, hogy milyen felhasználó jelentkezett be, hogy a továbbnavigálás
-                /// során meg tudjuk határozni a jogokat
                 if (user.RoleID == 3)
                 {
                     result = "User";
@@ -228,7 +209,7 @@ namespace AddSearchFunctionality.Controllers
 
         #endregion
 
-        #region Ajax hívás által használt metódusokhoz tartozó függvények
+        #region PRIVATE Helper Methods
 
         /// <summary>
         ///     Előállít egy olyan listát, amely tartalmazza azokat a gombokat a menüsávon
@@ -295,7 +276,6 @@ namespace AddSearchFunctionality.Controllers
         {
             try
             {
-                /// SiteUser mentése
                 db.SiteUsers.Add(CreateNewSiteUser(db, registrationViewModel));
                 db.SaveChanges();
             }
@@ -332,11 +312,9 @@ namespace AddSearchFunctionality.Controllers
         {
             Employee employee = CreateEmployeeInDBFormat(employeeInViewableFormat);
 
-            /// Employee mentése
             db.Employees.Add(employee);
             db.SaveChanges();
 
-            /// Employee-hez tartozó Site mentése
             db.Sites.Add(CreateSiteInDBFormat(employeeInViewableFormat, employee.EmployeeID));
             db.SaveChanges();
         }
@@ -430,17 +408,13 @@ namespace AddSearchFunctionality.Controllers
         /// <returns>True - Ha sikeres a törlés; False - Ha sikertelen</returns>
         private bool DeleteEmployeeFromDB(EmployeesDBEntities db, int EmployeeID)
         {
-            /// Objektumok lekérdezése a táblákból
             Site deleteSiteRow = GetDeleteSiteRow(db, EmployeeID);
             Employee deleteEmployeeRow = GetDeleteEmployeeRow(db, EmployeeID);
 
-            /// Ha minden objektum megtalálható az adott, hozzá tartozó táblákban, akkor...
             if (deleteSiteRow != null && deleteEmployeeRow != null)
             {
-                /// Site táblából töröljük, az adott EmployeeID-jú sort
                 DeleteSiteRowInSiteTable(db, deleteSiteRow);
 
-                /// Employee táblából töröljük az adott EmployeeID-jú sort
                 DeleteEmployeeRowInEmployeeTable(db, deleteEmployeeRow);
 
                 return true;
@@ -490,11 +464,8 @@ namespace AddSearchFunctionality.Controllers
         /// <returns>Dolgozói adatok a View-on megjeleníthető formátumban</returns>
         private List<EmployeeViewModel> GetEmployees(EmployeesDBEntities db)
         {
-            /// Adatok lekérdezése az Employee táblából
             List<Employee> employees = db.Employees.ToList();
 
-            /// A lekérdezett adatokat átalakítjuk a View-on megjeleníthető formátumú objektummá
-            /// amely a Dolgozó Nevét és ID-ját fogja tartalmazni
             List<EmployeeViewModel> employeesInViewableFormat = employees.Select(x => new EmployeeViewModel
             {
                 EmployeeID = x.EmployeeID,
@@ -515,13 +486,9 @@ namespace AddSearchFunctionality.Controllers
         /// <returns>Dolgozói adatok a View-on megjeleníthető formátumban</returns>
         private List<EmployeeViewModel> GetSearchedEmployees(EmployeesDBEntities db, string SearchText)
         {
-            /// Adatok lekérdezése az Employee táblából
             List<Employee> employees = db.Employees.ToList();
 
-            /// A szűrési feltételnek megfelelően lekérdezett adatokat átalakítjuk
-            /// a View-on megjeleníthető formátumú objektummá amely a Dolgozó Nevét
-            /// és ID-ját fogja tartalmazni. 
-            List<EmployeeViewModel> employeesInViewableFormat = employees.Where(x=> x.Name.ToUpper().Contains(SearchText.ToUpper())).Select(x => new EmployeeViewModel
+            List<EmployeeViewModel> employeesInViewableFormat = employees.Where(x => x.Name.ToUpper().Contains(SearchText.ToUpper())).Select(x => new EmployeeViewModel
             {
                 EmployeeID = x.EmployeeID,
                 Name = x.Name,
