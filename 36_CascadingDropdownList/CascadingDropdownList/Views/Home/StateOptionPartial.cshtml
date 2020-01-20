@@ -1,9 +1,7 @@
-﻿<!--DropDownList alapértelmezett értéke-->
-<option value="">--- Kérem válaszon Államot / Megyét ---</option>
+﻿<option value="">--- Kérem válaszon Államot / Megyét ---</option>
 
-<!--DropDownList feltöltése a TempData-ban található elemekkel-->
-@{ 
-    foreach(var item in TempData["StateDicitionaryTableElements"] as SelectList)
+@{
+    foreach (var item in TempData["StateDicitionaryTableElements"] as SelectList)
     {
         <option value="@item.Value">
             @item.Text

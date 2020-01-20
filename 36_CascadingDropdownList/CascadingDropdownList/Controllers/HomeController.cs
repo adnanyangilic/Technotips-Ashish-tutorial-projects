@@ -9,25 +9,12 @@ namespace CascadingDropdownList.Controllers
     {
         public ActionResult Index()
         {
-            /// Vizsgálat, hogy volt-e már bejelentkezett felhasználó,
-            /// mert akkor a bejelentkeztetett Index-et jelenítjük meg
-            /// a User-nak
-            if (Session["UserID"] != null)
-            {
-                return RedirectToAction("../Example/Index");
-            }
-            else
-            {
-                EmployeesDBEntities db = new EmployeesDBEntities();
+            EmployeesDBEntities db = new EmployeesDBEntities();
 
-                /// Eltároljuk a szótár elemeket, hogy egy SelectListBox-ot fel tudjunk tölteni
-                /// Szintakszis(Átadandó lista, Melyik attribútumot szeretnénk szállítani, melyik attribútumot jelenítsük meg a View-on
-                /// {Kulcs érték párok})
-                TempData["CountryDicitionaryTableElements"] = new SelectList(GetCountryDictionaryTableElements(db), "CountryID", "CountryName");
-                TempData.Keep();
+            TempData["CountryDicitionaryTableElements"] = new SelectList(GetCountryDictionaryTableElements(db), "CountryID", "CountryName");
+            TempData.Keep();
 
-                return View();
-            }
+            return View();
         }
 
         /// <summary>
@@ -40,9 +27,6 @@ namespace CascadingDropdownList.Controllers
         {
             EmployeesDBEntities db = new EmployeesDBEntities();
 
-            /// Eltároljuk a szótár elemeket, hogy egy SelectListBox-ot fel tudjunk tölteni
-            /// Szintakszis(Átadandó lista, Melyik attribútumot szeretnénk szállítani, melyik attribútumot jelenítsük meg a View-on
-            /// {Kulcs érték párok})
             TempData["StateDicitionaryTableElements"] = new SelectList(GetStateDictionaryTableElements(db, CountryID), "StateID", "StateName");
             TempData.Keep();
 
