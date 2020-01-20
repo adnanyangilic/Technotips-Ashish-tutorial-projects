@@ -68,3 +68,46 @@ c:\Users\kozakp\Documents\Visual Studio 2015\Projects\HowToDisplayMultipleCheckB
 c:\Users\kozakp\Documents\Visual Studio 2015\Projects\HowToDisplayMultipleCheckBox\HowToDisplayMultipleCheckBox\obj\Debug\HowToDisplayMultipleCheckBox.csproj.CoreCompileInputs.cache
 c:\Users\kozakp\Documents\Visual Studio 2015\Projects\HowToDisplayMultipleCheckBox\HowToDisplayMultipleCheckBox\obj\Debug\HowToDisplayMultipleCheckBox.dll
 c:\Users\kozakp\Documents\Visual Studio 2015\Projects\HowToDisplayMultipleCheckBox\HowToDisplayMultipleCheckBox\obj\Debug\HowToDisplayMultipleCheckBox.pdb
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\roslyn\csc.exe
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\roslyn\Microsoft.CodeAnalysis.dll
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\roslyn\Microsoft.CSharp.Core.targets
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\roslyn\Microsoft.VisualBasic.Core.targets
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\roslyn\System.Collections.Immutable.dll
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\roslyn\System.Reflection.Metadata.dll
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\roslyn\vbc.exe
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\roslyn\VBCSCompiler.exe
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\roslyn\VBCSCompiler.exe.config
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\HowToDisplayMultipleCheckBox.dll.config
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\HowToDisplayMultipleCheckBox.dll
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\HowToDisplayMultipleCheckBox.pdb
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\Antlr3.Runtime.dll
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\Microsoft.Owin.dll
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\Microsoft.Web.Infrastructure.dll
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\Newtonsoft.Json.dll
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\Owin.dll
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\System.Web.Helpers.dll
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\System.Web.Mvc.dll
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\System.Web.Optimization.dll
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\System.Web.Razor.dll
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\System.Web.WebPages.Deployment.dll
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\System.Web.WebPages.dll
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\System.Web.WebPages.Razor.dll
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\WebGrease.dll
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\System.Web.Helpers.xml
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\System.Web.Mvc.xml
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\System.Web.Optimization.xml
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\System.Web.Razor.xml
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\System.Web.WebPages.xml
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\System.Web.WebPages.Deployment.xml
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\System.Web.WebPages.Razor.xml
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\Antlr3.Runtime.pdb
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\Newtonsoft.Json.xml
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\bin\Microsoft.Owin.xml
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\obj\Debug\HowToDisplayMultipleCheckBox.csproj.CopyComplete
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\obj\Debug\HowToDisplayMultipleCheckBox.dll
+c:\Users\peter.kozak\Documents\Test\HowToDisplayMultipleCheckBox\obj\Debug\HowToDisplayMultipleCheckBox.pdb
