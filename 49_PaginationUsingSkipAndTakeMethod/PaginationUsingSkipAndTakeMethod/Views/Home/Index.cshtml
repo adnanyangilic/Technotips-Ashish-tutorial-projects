@@ -1,13 +1,9 @@
-﻿<!--Modell definiálása-->
-@model PaginationUsingSkipAndTakeMethod.Models.ViewModels.EmployeeViewModel
+﻿@model PaginationUsingSkipAndTakeMethod.Models.ViewModels.EmployeeViewModel
 
 @{
     ViewBag.Title = "Index";
 }
 
-<!--Egy sorban 4 képet jelenítünk meg egymás mellett, melyek reszponzívan jelennek meg.
-    Egy sorban a col-md-x összege nem haladhatja meg a 12-őt. Összesen 12 kell hogy legyen
-    az összege, ennek megfelelően fogja feldarabolni a képernyőt-->
 <div class="panel panel-body">
     <div class="col-md-3">
         <img class="img-responsive" src="~/Content/Images/index.jpg" />
@@ -24,15 +20,8 @@
 </div>
 
 <div class="panel panel-body">
-    <!--Oldalsó menüsáv elkészítése.-->
-    <div class="col-md-3">
-        @{ Html.RenderAction("SideMenu", "Example");}
-    </div>
-    <!--Tartalom elkészítése-->
-    <div class="col-md-9">
-        <!--Táblázat definiálása-->
+    <div class="col-md-12">
         <table class="display" id="EmployeeDataTable">
-            <!--Táblázat Fejléc elkészítése-->
             <thead>
                 <tr>
                     <th>
@@ -48,31 +37,23 @@
                     </th>
                 </tr>
             </thead>
-            <!--Táblázat Törzs elkészítése-->
             <tbody></tbody>
         </table>
 
-        <!--Új dolgozó hozzáadása Gomb elkészítése-->
         <div style="text-align: center">
             <a href="#" class="btn btn-primary" align="center" onclick="EditEmployeeDetails(0)">Új dolgozó hozzáadása</a>
         </div>
 
-        <!--Edit Employee Popup window elkészítése-->
         <div class="modal fade" id="editOrNewEmployeeModal">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <!--Header elkészítése-->
                     <div class="modal-header">
-                        <!--Close button elkészítése a fejléchez-->
                         <a href="#" class="close" data-dismiss="modal">&times;</a>
-                        <!--Címsor kiírása-->
                         <h3 class="modal-title" align="center">Dolgozó Szerkesztése</h3>
                     </div>
-                    <!--Törzs elkészítése-->
                     <div class="modal-body" id="employeeEditOrNewModalBody" align="center">
 
                     </div>
-                    <!--Lábjegyzet/Alsó rész elkészítése-->
                     <div class="modal-footer">
                         <a href="#" class="btn btn-danger" data-dismiss="modal">Visza</a>
                     </div>
@@ -82,65 +63,49 @@
     </div>
 </div>
 
-<!--SCRIPT-ek definiálása-->
 <script>
-    /// Ha a DOM teljesen betöltött, akkor...
     $(document).ready(function () {
         BindDataTable();
-    })
+    });
 
-    /// A Controller által visszaadott adatok feltöltése az
-    /// elkészített táblázatba JQuery DataTable implementálásával
-    var BindDataTable = function (response) {
-        /// Táblázat azonosítása, majd Definiálása JQuery DataTable
-        /// Használatával
+    var BindDataTable = function () {
         $("#EmployeeDataTable").DataTable({
-            "bServerSide": true,                                            /// Szerver oldali feldolgozás engedélyezésa
-            "sAjaxSource": "/Home/GetEmployeeRecords",                      /// Hol lesz elérhető az AJAX Hívásnak a Process metódus
-            "fnServerData": function (sSource, aoData, fnCallback) {        /// A szállítandó adathalmaz az AJAX hívás felé (aoData az az aktuális DataTable)
-                /// AJAX - Asyncron JavaScript And XML
+            "bServerSide": true,
+            "sAjaxSource": "/Home/GetEmployeeRecords",
+            "fnServerData": function (sSource, aoData, fnCallback) {
                 $.ajax({
-                    type    : "GET",                /// Kérés típúsa
-                    data    : aoData,               /// A küldendő adathalmaz (aoData az az aktuális DataTable amelyen végrehajtunk valamilyen funkciót)
-                    url     : sSource,              /// Hol érhető el (Controller/Methodname)
-                    success : fnCallback            /// Ha sikeresen lefutott az ajax kérés, akkor csak meghívjuk azt a funkciót amelyet használni szerettünk volna
-                })
+                    type: "GET",
+                    data: aoData,
+                    url: sSource,
+                    success: fnCallback
+                });
             },
-            "aoColumns"  : [                        /// Az Oszlopok definiálása (Melyik oszlopba, melyik a Modellnek megfelelő Property érték kerüljön bele)
+            "aoColumns": [
                 { "mData": "Name" },
                 { "mData": "DepartmentName" },
                 { "mData": "Adress" },
                 {
-                    "mData"         : "EmployeeID",
-                    "bSortable"     : false,            /// Csoportosítás kikapcsolása
-                    "bSearchable"   : false,            /// Kereshetőség kikapcsolása
-                    /// "render" szintakszisa -> (Adat, amelyet át szeretnél adni, Type: Display, Full: A teljes objektumhoz tartozó attribútumok,
-                    ///                           Meta: A teljes beállításokat amely a DataTable-hez tarotznak (sor, oszlop, stb...))
-                    /// Egy gomb elkészítése, amely meg fog jelenni a Táblázat adott oszlopában
-                    "render": function (EmployeeID, type, full, meta) {
-                        return '<a href="#" onclick="EditEmployeeDetails(' + EmployeeID + ')"><i class="glyphicon glyphicon-pencil"></i></a>'
+                    "mData": "EmployeeID",
+                    "bSortable": false,
+                    "bSearchable": false,
+                    "render": function (employeeId) {
+                        return '<a href="#" onclick="EditEmployeeDetails(' + employeeId + ')"><i class="glyphicon glyphicon-pencil"></i></a>';
                     }
-                },
+                }
             ]
         });
     }
 
-    /// EditEmployee függvény megvalósítása. AJAX Kérés segítségével, meg fog hívni
-    /// egy metódust, amely egy PartialView-on keresztül megjeleníti a paraméterben kapott
-    /// ID-jú Employee objektum adatait amelyeket szerkeszteni lehetlesz
-    var EditEmployeeDetails = function (EmployeeID) {
-        /// AJAX - Asyncron JavaScript And XML
+    var EditEmployeeDetails = function (employeeId) {
         $.ajax({
-            type: "POST",                               /// Kérés típusa
-            url: "../Home/EditOrNewEmployee",        /// Hol érhető el (Controller/MethodName)
-            data: { EmployeeID: EmployeeID },           /// A törlendő objektumok ID-ja JSON adatként
-            success: function (response) {              /// Ha skeresen lefutott az AJAX kérés
-                /// Az eredményként kapott PartialView-ot betöltjük a PopupWindow törzsébe
+            type: "POST",
+            url: "../Home/EditOrNewEmployee",
+            data: { EmployeeID: employeeId },
+            success: function (response) {
                 $("#employeeEditOrNewModalBody").html(response);
 
-                /// Popup Window megjelenítése
                 $("#editOrNewEmployeeModal").modal("show");
             }
-        })
+        });
     }
 </script>
