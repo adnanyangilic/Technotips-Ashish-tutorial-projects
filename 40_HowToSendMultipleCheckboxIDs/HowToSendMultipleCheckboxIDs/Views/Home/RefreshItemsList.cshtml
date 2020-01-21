@@ -1,9 +1,7 @@
-﻿<!--Modell definiálása-->
-@model IEnumerable<HowToSendMultipleCheckboxIDs.Models.CheckBoxModels.ShopItems>
+﻿@model IEnumerable<HowToSendMultipleCheckboxIDs.Models.CheckBoxModels.ShopItems>
 
 @if (Model != null)
 {
-    <!--List fejléce, azaz címének elkészítése-->
     <li class="list-group-item-heading list-group-item active">
         <h4 class="list-group-item-text">Az elérhető elemek a boltomban</h4>
     </li>
@@ -11,9 +9,6 @@
     foreach (var item in Model)
     {
         <li class="list-group-item">
-            <!--CheckBox-ok elkészítése.
-                Első sor maga a CheckBox mező definiálása (aazaz True/False),
-                Második sor, a hozzá tartozó név elkészítése-->
             <div class="checkbox">
                 <input type="checkbox" id="Check_@item.ID" checked="@item.IsAvailable" />
                 <label for="Check_@item.ID">@item.Name</label>
@@ -21,7 +16,6 @@
         </li>
     }
 
-    <!--Elemek frissítése gomb elkészítése-->
     <li class="list-group-item">
         <a class="btn btn-success btn-block" onclick="UpdateList()">
             Elemek frissítése

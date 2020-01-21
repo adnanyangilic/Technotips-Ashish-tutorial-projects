@@ -16,20 +16,10 @@ namespace HowToSendMultipleCheckboxIDs.Controllers
 
         public ActionResult Index()
         {
-            /// Eltároljuk ViewBag-ben az előre definiált ShopItem listát
+
             ViewBag.ShopItemList = shopItemsList;
 
-            /// Vizsgálat, hogy volt-e már bejelentkezett felhasználó,
-            /// mert akkor a bejelentkeztetett Index-et jelenítjük meg
-            /// a User-nak
-            if (Session["UserID"] != null)
-            {
-                return RedirectToAction("../Example/Index");
-            }
-            else
-            {
-                return View();
-            }
+            return View();
         }
 
         /// <summary>
@@ -42,10 +32,8 @@ namespace HowToSendMultipleCheckboxIDs.Controllers
         /// </returns>
         public ActionResult RefreshItemsList(string CheckedItemList)
         {
-            /// Feldaraboljuk a karekterláncot tömb formátummá
             string[] checkedItemIDList = CheckedItemList.Split(',');
 
-            /// Lita inicializálása/ beállítása
             SetAllItemFalseStatus(shopItemsList);
             SetAllItemStatus(shopItemsList, checkedItemIDList);
 
@@ -79,7 +67,7 @@ namespace HowToSendMultipleCheckboxIDs.Controllers
         /// <param name="checkedItemIDList">Azokat az ID-kat tartalmazza amelyeknek a Státuszát át kell állítani</param>
         private void SetAllItemStatus(List<ShopItems> shopItemsList, string[] checkedItemIDList)
         {
-            foreach(var item in checkedItemIDList)
+            foreach (var item in checkedItemIDList)
             {
                 shopItemsList.Find(x => x.ID == Int32.Parse(item)).IsAvailable = true;
             }
@@ -91,7 +79,7 @@ namespace HowToSendMultipleCheckboxIDs.Controllers
         /// <param name="shopItemList">Lista, amely a ShopItem objektumokat tartalmazza</param>
         private void SetAllItemFalseStatus(List<ShopItems> shopItemList)
         {
-            foreach(ShopItems item in shopItemList)
+            foreach (ShopItems item in shopItemList)
             {
                 item.IsAvailable = false;
             }
