@@ -2,9 +2,6 @@
     ViewBag.Title = "Index";
 }
 
-<!--Egy sorban 4 képet jelenítünk meg egymás mellett, melyek reszponzívan jelennek meg.
-    Egy sorban a col-md-x összege nem haladhatja meg a 12-őt. Összesen 12 kell hogy legyen
-    az összege, ennek megfelelően fogja feldarabolni a képernyőt-->
 <div class="panel panel-body">
     <div class="col-md-3">
         <img class="img-responsive" src="~/Content/Images/index.jpg" />
@@ -21,14 +18,7 @@
 </div>
 
 <div class="panel panel-body">
-    <!--Oldalsó menüsáv elkészítése.-->
-    <div class="col-md-3">
-        @{ Html.RenderAction("SideMenu", "Example");}
-    </div>
-    <!--Tartalom elkészítése-->
-    <div class="col-md-9">
-        <!--Kép galéria definiálása. Egy összefogó objektum elkészítése, amelyben az általunk megjelenített
-            képeket tartalmazza-->
+    <div class="col-md-12">
         <ul class="list-group" id="SortableGallery" style="cursor:move">
             <li class="list-group-item col-md-4">
                 <div>
@@ -64,15 +54,8 @@
     </div>
 </div>
 
-<!--SCRIPT Definiálása-->
 <script>
-    /// A képeket tartalmazó objektum összes elemére ráhúzzuk a Sortable
-    /// metódust. Ez lehetővé teszi számunkra, hogy mozgatni tudjuk a képeket
-    /// Drag&Drop módszerrel. Az elengedett objektum meg is tartja a helyét.
     $("#SortableGallery").sortable({
-
-        /// Update metódus felülírása. Akkor fog lefutni, amikor egy képet
-        /// elengedünk és felveszi az új helyét
         update: function () {
             alert("Az elmozdított kép egy új helyre került!");
         }

@@ -68,3 +68,46 @@ c:\Users\kozakp\Documents\Visual Studio 2015\Projects\CreateResponsiveSortablePh
 c:\Users\kozakp\Documents\Visual Studio 2015\Projects\CreateResponsiveSortablePhotoGallery\CreateResponsiveSortablePhotoGallery\obj\Debug\CreateResponsiveSortablePhotoGallery.csproj.CoreCompileInputs.cache
 c:\Users\kozakp\Documents\Visual Studio 2015\Projects\CreateResponsiveSortablePhotoGallery\CreateResponsiveSortablePhotoGallery\obj\Debug\CreateResponsiveSortablePhotoGallery.dll
 c:\Users\kozakp\Documents\Visual Studio 2015\Projects\CreateResponsiveSortablePhotoGallery\CreateResponsiveSortablePhotoGallery\obj\Debug\CreateResponsiveSortablePhotoGallery.pdb
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\roslyn\csc.exe
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\roslyn\Microsoft.CodeAnalysis.dll
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\roslyn\Microsoft.CSharp.Core.targets
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\roslyn\Microsoft.VisualBasic.Core.targets
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\roslyn\System.Collections.Immutable.dll
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\roslyn\System.Reflection.Metadata.dll
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\roslyn\vbc.exe
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\roslyn\VBCSCompiler.exe
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\roslyn\VBCSCompiler.exe.config
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\CreateResponsiveSortablePhotoGallery.dll.config
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\CreateResponsiveSortablePhotoGallery.dll
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\CreateResponsiveSortablePhotoGallery.pdb
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\Antlr3.Runtime.dll
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\Microsoft.Owin.dll
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\Microsoft.Web.Infrastructure.dll
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\Newtonsoft.Json.dll
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\Owin.dll
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\System.Web.Helpers.dll
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\System.Web.Mvc.dll
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\System.Web.Optimization.dll
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\System.Web.Razor.dll
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\System.Web.WebPages.Deployment.dll
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\System.Web.WebPages.dll
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\System.Web.WebPages.Razor.dll
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\WebGrease.dll
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\System.Web.Helpers.xml
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\System.Web.Mvc.xml
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\System.Web.Optimization.xml
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\System.Web.Razor.xml
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\System.Web.WebPages.xml
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\System.Web.WebPages.Deployment.xml
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\System.Web.WebPages.Razor.xml
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\Antlr3.Runtime.pdb
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\Newtonsoft.Json.xml
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\bin\Microsoft.Owin.xml
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\obj\Debug\CreateResponsiveSortablePhotoGallery.csproj.CopyComplete
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\obj\Debug\CreateResponsiveSortablePhotoGallery.dll
+c:\Users\peter.kozak\Documents\Test\CreateResponsiveSortablePhotoGallery\obj\Debug\CreateResponsiveSortablePhotoGallery.pdb
