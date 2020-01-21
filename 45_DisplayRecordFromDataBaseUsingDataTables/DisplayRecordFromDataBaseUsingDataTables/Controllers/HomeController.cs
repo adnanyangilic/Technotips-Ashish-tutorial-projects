@@ -10,17 +10,7 @@ namespace DisplayRecordFromDataBaseUsingDataTables.Controllers
     {
         public ActionResult Index()
         {
-            /// Vizsgálat, hogy volt-e már bejelentkezett felhasználó,
-            /// mert akkor a bejelentkeztetett Index-et jelenítjük meg
-            /// a User-nak
-            if (Session["UserID"] != null)
-            {
-                return RedirectToAction("../Example/Index");
-            }
-            else
-            {
-                return View();
-            }
+            return View();
         }
 
         /// <summary>
@@ -42,9 +32,6 @@ namespace DisplayRecordFromDataBaseUsingDataTables.Controllers
         /// <returns>Dolgozói adatok a View-on megjeleníthető formátumban</returns>
         private List<EmployeeViewModel> GetEmployees(EmployeesDBEntities db)
         {
-            /// Adatok lekérdezése az Employee táblából. A lekérdezett adatokat átalakítjuk
-            /// a View-on megjeleníthető formátumú objektummá amely a Dolgozó Nevét és ID-ját
-            /// fogja tartalmazni
             return db.Employees.Select(x => new EmployeeViewModel
             {
                 EmployeeID = x.EmployeeID,

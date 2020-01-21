@@ -1,13 +1,9 @@
-﻿<!--Modell definiálása-->
-@model DisplayRecordFromDataBaseUsingDataTables.Models.ViewModels.EmployeeViewModel
+﻿@model DisplayRecordFromDataBaseUsingDataTables.Models.ViewModels.EmployeeViewModel
 
 @{
     ViewBag.Title = "Index";
 }
 
-<!--Egy sorban 4 képet jelenítünk meg egymás mellett, melyek reszponzívan jelennek meg.
-    Egy sorban a col-md-x összege nem haladhatja meg a 12-őt. Összesen 12 kell hogy legyen
-    az összege, ennek megfelelően fogja feldarabolni a képernyőt-->
 <div class="panel panel-body">
     <div class="col-md-3">
         <img class="img-responsive" src="~/Content/Images/index.jpg" />
@@ -24,15 +20,8 @@
 </div>
 
 <div class="panel panel-body">
-    <!--Oldalsó menüsáv elkészítése.-->
-    <div class="col-md-3">
-        @{ Html.RenderAction("SideMenu", "Example");}
-    </div>
-    <!--Tartalom elkészítése-->
-    <div class="col-md-9">
-        <!--Táblázat definiálása-->
+    <div class="col-md-12">
         <table class="display" id="EmployeeDataTable">
-            <!--Táblázat Fejléc elkészítése-->
             <thead>
                 <tr>
                     <th>
@@ -46,41 +35,31 @@
                     </th>
                 </tr>
             </thead>
-            <!--Táblázat Törzs elkészítése-->
             <tbody>
-
             </tbody>
         </table>
     </div>
 </div>
 
-<!--SCRIPT-ek definiálása-->
 <script>
-    /// Ha a DOM teljesen betöltött, akkor...
     $(document).ready(function () {
         GetEmployeeRecords();
-    })
+    });
 
-    /// Dolgozók lekérdezése a Controlleren keresztül.
     var GetEmployeeRecords = function () {
-        /// AJAX - Asyncron JavaScript And XML
         $.ajax({
-            type    : "GET",                            /// Kérés típúsa
-            url     : "../Home/GetEmployeeRecords",     /// Hol érhető el (Controller/Methodname)
-            success : function (response) {             /// Ha sikeresen lefutott az AJAX kérés
+            type: "GET",
+            url: "../Home/GetEmployeeRecords",
+            success: function (response) {
                 BindDataTable(response);
             }
-        })
+        });
     }
 
-    /// A Controller által visszaadott adatok feltöltése az
-    /// elkészített táblázatba JQuery DataTable implementálásával
     var BindDataTable = function (response) {
-        /// Táblázat azonosítása, majd Definiálása JQuery DataTable
-        /// Használatával
         $("#EmployeeDataTable").DataTable({
-            "aaData"    : response,             /// A feltöltendő adathalmaz implementálása
-            "aoColumns" : [                     /// Az Oszlopok definiálása (Melyik oszlopba, melyik a Modellnek megfelelő Property érték kerüljön bele)
+            "aaData": response,
+            "aoColumns": [
                 { "mData": "Name" },
                 { "mData": "DepartmentName" },
                 { "mData": "Adress" }
