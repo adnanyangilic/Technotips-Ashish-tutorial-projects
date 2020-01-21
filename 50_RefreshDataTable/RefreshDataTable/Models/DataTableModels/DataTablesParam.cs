@@ -2,25 +2,30 @@
 
 namespace RefreshDataTable.Models.DataTableModels
 {
-    /// <summary>
-    ///     A JQuery DataTable-ben található attributúmoknak megfelelően
-    ///     C#-ban elkészített osztály
-    /// </summary>
     public class DataTablesParam
     {
         public int iDisplayStart { get; set; }
+
         public int iDisplayLength { get; set; }
+
         public int iColumns { get; set; }
+
         public string sSearch { get; set; }
-        public bool bEscapeRegex { get; set; }
-        public int iSortingCols { get; set; }
+
         public int sEcho { get; set; }
+
         public List<string> sColumnNames { get; set; }
+
         public List<bool> bSortable { get; set; }
+
         public List<bool> bSearchable { get; set; }
+
         public List<string> sSearchValues { get; set; }
+
         public List<int> iSortCol { get; set; }
+
         public List<string> sSortDir { get; set; }
+
         public List<bool> bEscapeRegexColumns { get; set; }
 
         public DataTablesParam()

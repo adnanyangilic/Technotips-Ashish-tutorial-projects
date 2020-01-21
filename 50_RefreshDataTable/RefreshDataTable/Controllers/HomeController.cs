@@ -12,63 +12,35 @@ namespace RefreshDataTable.Controllers
     {
         public ActionResult Index()
         {
-            /// Vizsgálat, hogy volt-e már bejelentkezett felhasználó,
-            /// mert akkor a bejelentkeztetett Index-et jelenítjük meg
-            /// a User-nak
-            if (Session["UserID"] != null)
-            {
-                return RedirectToAction("../Example/Index");
-            }
-            else
-            {
-                return View();
-            }
+            return View();
         }
 
         /// <summary>
         ///     Visszatéríti a Dolgozói adatokat a View részére JSON objektumon
         ///     keresztül
         /// </summary>
-        /// <param name="dataTablesParam">ű
+        /// <param name="dataTablesParam">
         ///     A JQuery DataTable-ben található attributúmoknak megfelelően C#-ban elkészített objektum példány
         /// </param>
         /// <param name="searchBox">Az egyedileg elkészített kereső mező tartalmában szereplő keresendő karakterlánc</param>
         /// <returns>Dolgozói adatok JSON formában</returns>
         public JsonResult GetEmployeeRecords(DataTablesParam dataTablesParam, string searchBoxValue)
         {
-            /// Tároljuk az oldalszámot. Alapértelmezetten 1 az értéke mivel feltételezzük
-            /// hogy a megjelenítendő adatmennyiség 1 oldalnak fog megfelelni
             int pageNumber = 1;
-
-            /// Tároljuk, hogy a lekérdezési eredményeknek megfelelően hány rekord tér vissza, így
-            /// a DataTable hány rekordot fog tartalmazni összesen
             int totalRecordsCount = 0;
 
             EmployeesDBEntities db = new EmployeesDBEntities();
-
             List<EmployeeViewModel> employees = new List<EmployeeViewModel>();
 
-            /// Oldalszám kalkulációja. Ha a megjelenítendő adathalmaz kezdeti értéke, nagyobb
-            /// mint az összes megjeleníthető sorok száma, akkor számolunk egy oldalszámot
             if (dataTablesParam.iDisplayStart >= dataTablesParam.iDisplayLength)
             {
-                /// Pl.: (30 / 10) + 1 = 4. oldal. 
-                ///     A megjelenítendő adathalmaz sorszámának kezdete (30. rekord)
-                ///     A megjelenítehető sorok száma (10) 
-                ///     + 1
                 pageNumber = (dataTablesParam.iDisplayStart / dataTablesParam.iDisplayLength) + 1;
             }
 
-            /// Vizsgálat, hogy a search mező üres volt-e illetve, az egyedileg elkészített searchBox
-            /// mező üres volt-e, ha nem és igen, akkor a szűrési feltételnek megfelelő
-            /// adathalmazt jelenítjük meg, ellenkezőleg, akkor pedig további vizsgálat...
             if (dataTablesParam.sSearch != null && searchBoxValue == "")
             {
                 employees = GetSearchedEmployees(db, dataTablesParam.sSearch, dataTablesParam, pageNumber, ref totalRecordsCount);
             }
-            /// Vizsgálat, hogy az egyedileg elkészített searchBox mező üres volt-e. Ha nem, akkor
-            /// a szűrési feltételnek megfelelő adathalmazt jelenítjük meg, ellenkezőleg pedig az
-            /// összes adatot megjelenítjük
             else if (searchBoxValue != "")
             {
                 dataTablesParam.sSearch = null;
@@ -82,12 +54,11 @@ namespace RefreshDataTable.Controllers
 
             return Json(new
             {
-                aaData = employees,                             /// Adathalmaz inicializálása (A táblázatban található adatok)
-                sEcho = dataTablesParam.sEcho,                  /// Szekvenciális növekedési információ. Ha valamilyen műveletet végzünk a DT-n akkor növekszik 1-el
-                iTotalDisplayRecords = totalRecordsCount,       /// Bal sarokban megjelenő érték inicializálása
-                iTotalRecords = employees.Count()               /// Összes sorra vonatkozó adatok megjelenítése (Bal alsó sarok vége)
-            }
-            , JsonRequestBehavior.AllowGet);
+                aaData = employees,
+                sEcho = dataTablesParam.sEcho,
+                iTotalDisplayRecords = totalRecordsCount,
+                iTotalRecords = employees.Count()
+            }, JsonRequestBehavior.AllowGet);
         }
 
         /// <summary>
@@ -101,22 +72,15 @@ namespace RefreshDataTable.Controllers
         {
             EmployeesDBEntities db = new EmployeesDBEntities();
 
-            /// Eltároljuk a szótár elemeket, hogy egy SelectListBox-ot fel tudjunk tölteni
-            /// Szintakszis(Átadandó lista, Melyik attribútumot szeretnénk szállítani, melyik attribútumot jelenítsük meg a View-on
-            /// {Kulcs érték párok})
             TempData["DepartmentsDicitionaryTableElements"] = new SelectList(GetDepartmentsDictionaryTableElements(db), "DepartmentID", "Name");
             TempData.Keep();
 
-            /// Vizsgálat, hogy új Employee-t szeretnénk létrehozni, vagy pedig meglévőt szeretnénk
-            /// szerkeszteni
             if (EmployeeID != 0)
             {
                 return PartialView("EditOrNewEmployee", GetSelectedEmployee(db, EmployeeID));
             }
-            else
-            {
-                return PartialView("EditOrNewEmployee", new EmployeeViewModel());
-            }
+
+            return PartialView("EditOrNewEmployee", new EmployeeViewModel());
         }
 
         /// <summary>
@@ -162,8 +126,6 @@ namespace RefreshDataTable.Controllers
         /// <returns>Dolgozói adatok a View-on megjeleníthető formátumban</returns>
         private List<EmployeeViewModel> GetEmployees(EmployeesDBEntities db, DataTablesParam dataTablesParam, int pageNumber, ref int totalRecordsCount)
         {
-            /// Adatok lekérdezése az Employee táblából. A lekérdezett adatokat átalakítjuk
-            /// a View-on megjeleníthető formátumú objektummá.
             List<EmployeeViewModel> employees = db.Employees
                 .Select(x => new EmployeeViewModel
                 {
@@ -174,16 +136,12 @@ namespace RefreshDataTable.Controllers
                 })
                 .ToList();
 
-            /// Eltároljuk, hogy összesen hány sor található a lekérdezett adathalmaz eredméyneként
             totalRecordsCount = employees.Count();
 
-            /// A korábban lekérdezett adathalmaz egy PrimaryKey által rendezett
-            /// adathalmaz lesz, és a DataTable-nek megfelelő mennyiségű adat 
-            /// fog csak megjelenni benne.
             return employees
-                .OrderBy(x => x.EmployeeID)                                 /// Rendezés
-                .Skip((pageNumber - 1) * dataTablesParam.iDisplayLength)    /// Kihagyjuk az előtte lévő felesleges elemeket
-                .Take(dataTablesParam.iDisplayLength)                       /// Csak annyi elemet tartunk meg amennyi a DataTable-en megjelenik
+                .OrderBy(x => x.EmployeeID)
+                .Skip((pageNumber - 1) * dataTablesParam.iDisplayLength)
+                .Take(dataTablesParam.iDisplayLength)
                 .ToList();
         }
 
@@ -201,9 +159,6 @@ namespace RefreshDataTable.Controllers
         /// <returns>Dolgozói adatok a View-on megjeleníthető formátumban</returns>
         private List<EmployeeViewModel> GetSearchedEmployees(EmployeesDBEntities db, string SearchText, DataTablesParam dataTablesParam, int pageNumber, ref int totalRecordsCount)
         {
-            /// Adatok lekérdezése az Employee táblából.
-            /// A szűrési feltételnek megfelelően lekérdezett adatokat átalakítjuk
-            /// a View-on megjeleníthető formátumú objektummá
             List<EmployeeViewModel> employees = db.Employees
                 .Where(x => x.Name.ToUpper().Contains(SearchText.ToUpper()) ||
                     x.Department.Name.ToUpper().Contains(SearchText.ToUpper()) ||
@@ -217,16 +172,12 @@ namespace RefreshDataTable.Controllers
                 })
                 .ToList();
 
-            /// Eltároljuk, hogy összesen hány sor található a lekérdezett adathalmaz eredméyneként
             totalRecordsCount = employees.Count();
 
-            /// A korábban lekérdezett adathalmaz egy PrimaryKey által rendezett
-            /// adathalmaz lesz, és a DataTable-nek megfelelő mennyiségű adat 
-            /// fog csak megjelenni benne.
             return employees
-                .OrderBy(x => x.EmployeeID)                                 /// Rendezés
-                .Skip((pageNumber - 1) * dataTablesParam.iDisplayLength)    /// Kihagyjuk az előtte lévő felesleges elemeket
-                .Take(dataTablesParam.iDisplayLength)                       /// Csak annyi elemet tartunk meg amennyi a DataTable-en megjelenik                
+                .OrderBy(x => x.EmployeeID)
+                .Skip((pageNumber - 1) * dataTablesParam.iDisplayLength)
+                .Take(dataTablesParam.iDisplayLength)
                 .ToList();
         }
 
@@ -287,11 +238,9 @@ namespace RefreshDataTable.Controllers
         {
             Employee employee = CreateEmployeeInDBFormat(employeeInViewableFormat);
 
-            /// Employee mentése
             db.Employees.Add(employee);
             db.SaveChanges();
 
-            /// Employee-hez tartozó Site mentése
             db.Sites.Add(CreateSiteInDBFormat(employeeInViewableFormat, employee.EmployeeID));
             db.SaveChanges();
         }
