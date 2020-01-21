@@ -11,17 +11,7 @@ namespace EditRecordUsingDataTable.Controllers
     {
         public ActionResult Index()
         {
-            /// Vizsgálat, hogy volt-e már bejelentkezett felhasználó,
-            /// mert akkor a bejelentkeztetett Index-et jelenítjük meg
-            /// a User-nak
-            if (Session["UserID"] != null)
-            {
-                return RedirectToAction("../Example/Index");
-            }
-            else
-            {
-                return View();
-            }
+            return View();
         }
 
         /// <summary>
@@ -47,22 +37,15 @@ namespace EditRecordUsingDataTable.Controllers
         {
             EmployeesDBEntities db = new EmployeesDBEntities();
 
-            /// Eltároljuk a szótár elemeket, hogy egy SelectListBox-ot fel tudjunk tölteni
-            /// Szintakszis(Átadandó lista, Melyik attribútumot szeretnénk szállítani, melyik attribútumot jelenítsük meg a View-on
-            /// {Kulcs érték párok})
             TempData["DepartmentsDicitionaryTableElements"] = new SelectList(GetDepartmentsDictionaryTableElements(db), "DepartmentID", "Name");
             TempData.Keep();
 
-            /// Vizsgálat, hogy új Employee-t szeretnénk létrehozni, vagy pedig meglévőt szeretnénk
-            /// szerkeszteni
             if (EmployeeID != 0)
             {
                 return PartialView("EditOrNewEmployee", GetSelectedEmployee(db, EmployeeID));
             }
-            else
-            {
-                return PartialView("EditOrNewEmployee", new EmployeeViewModel());
-            }
+
+            return PartialView("EditOrNewEmployee", new EmployeeViewModel());
         }
 
         /// <summary>
@@ -70,7 +53,6 @@ namespace EditRecordUsingDataTable.Controllers
         ///     új adatot rögzítünk, ha pedig ID > 0 akkor frissítjük az adatokat
         /// </summary>
         /// <param name="employeeInViewableFormat">Az eltárolandó Employee a View-tól</param>
-        /// <returns></returns>
         [HttpPost]
         public ActionResult SaveEmployee(EmployeeViewModel employeeInViewableFormat)
         {
@@ -103,9 +85,6 @@ namespace EditRecordUsingDataTable.Controllers
         /// <returns>Dolgozói adatok a View-on megjeleníthető formátumban</returns>
         private List<EmployeeViewModel> GetEmployees(EmployeesDBEntities db)
         {
-            /// Adatok lekérdezése az Employee táblából. A lekérdezett adatokat átalakítjuk
-            /// a View-on megjeleníthető formátumú objektummá amely a Dolgozó Nevét és ID-ját
-            /// fogja tartalmazni
             return db.Employees.Select(x => new EmployeeViewModel
             {
                 EmployeeID = x.EmployeeID,
@@ -172,11 +151,9 @@ namespace EditRecordUsingDataTable.Controllers
         {
             Employee employee = CreateEmployeeInDBFormat(employeeInViewableFormat);
 
-            /// Employee mentése
             db.Employees.Add(employee);
             db.SaveChanges();
 
-            /// Employee-hez tartozó Site mentése
             db.Sites.Add(CreateSiteInDBFormat(employeeInViewableFormat, employee.EmployeeID));
             db.SaveChanges();
         }
@@ -237,7 +214,6 @@ namespace EditRecordUsingDataTable.Controllers
         /// </summary>
         /// <param name="employeeInViewableFormat">A View-tól kapott EmployeeViewModel objektum</param>
         /// <param name="lastestEmployeeID">A legutóbb rögzített Employee objektum ID-ja</param>
-        /// <returns></returns>
         private Site CreateSiteInDBFormat(EmployeeViewModel employeeInViewableFormat, int lastestEmployeeID)
         {
             Site site = new Site();
