@@ -16,17 +16,7 @@ namespace ImplementAutocompletTextBox.Controllers
 
         public ActionResult Index()
         {
-            /// Vizsgálat, hogy volt-e már bejelentkezett felhasználó,
-            /// mert akkor a bejelentkeztetett Index-et jelenítjük meg
-            /// a User-nak
-            if (Session["UserID"] != null)
-            {
-                return RedirectToAction("../Example/Index");
-            }
-            else
-            {
-                return View();
-            }
+            return View();
         }
 
         /// <summary>

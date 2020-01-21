@@ -1,12 +1,7 @@
-﻿<!--Modell definiálása-->
-
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
 
-<!--Egy sorban 4 képet jelenítünk meg egymás mellett, melyek reszponzívan jelennek meg.
-    Egy sorban a col-md-x összege nem haladhatja meg a 12-őt. Összesen 12 kell hogy legyen
-    az összege, ennek megfelelően fogja feldarabolni a képernyőt-->
 <div class="panel panel-body">
     <div class="col-md-3">
         <img class="img-responsive" src="~/Content/Images/index.jpg" />
@@ -23,46 +18,25 @@
 </div>
 
 <div class="panel panel-body">
-    <!--Oldalsó menüsáv elkészítése.-->
-    <div class="col-md-3">
-        @{ Html.RenderAction("SideMenu", "Example");}
-    </div>
-    <!--Tartalom elkészítése-->
-    <div class="col-md-9">
-        
-        <!--Input mező definiálása, amivel a felajánlott keresést fogjuk
-            prezentálni-->
+    <div class="col-lg-6" style="float:none; margin:auto;">
         <input type="text" class="form-control" id="textBoxAutoComplete" />
     </div>
 </div>
 
-<!--SCRIPT-ek definiálása-->
 <script>
-    /// Ha a TextBlock mezőbe elkezdünk gépelni, akkor az
-    /// "autocomplete" metódusa mindig meg fog hívódni
     $("#textBoxAutoComplete").autocomplete({
-
-        /// Definiáljuk, hogy az TextBlock az AutoComplete végrehajtásához
-        /// honnan kapja az adathalmazt
         source: function (request, response) {
-
-            /// AJAX - Asyncron JavaScript And XML
             $.ajax({
-                type    : "GET",                                        /// A kérés típusa
-                url     : "../Home/GetSuggestionListFromShopItemList",  /// Hol érhető el (Controller/MethodName)
-                data    : { SeaarchText: request.term },                /// A keresendő karaktersorozat 
-                success: function (data) {                             /// Ha a kérés sikeres volt, akkor...
-                    /// A válasz mappalése. Szükséges, mivel JSON objektumokat fogunk visszakapni
-                    /// amelyet megfelelően fel kell dolgozni. JSON objektum tömböt egy egyszerű
-                    /// Tömbbé fogunk átalakítani
-                    response($.map(data, function (item)
-                    {
-                        /// Lable:item -> JSON objektum Kulcs objektuma
-                        /// value:item -> JSON objektum Érték objektuma
-                        return {lable:item, value:item}
-                    }))
+                type: "GET",
+                url: "../Home/GetSuggestionListFromShopItemList",
+                data: { SeaarchText: request.term },
+                success: function (data) {
+                    response($.map(data,
+                        function (item) {
+                            return { lable: item, value: item }
+                        }));
                 }
-            })
+            });
         }
     })
 </script>
