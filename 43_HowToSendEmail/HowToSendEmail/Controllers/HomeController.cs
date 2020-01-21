@@ -10,17 +10,7 @@ namespace HowToSendEmail.Controllers
     {
         public ActionResult Index()
         {
-            /// Vizsgálat, hogy volt-e már bejelentkezett felhasználó,
-            /// mert akkor a bejelentkeztetett Index-et jelenítjük meg
-            /// a User-nak
-            if (Session["UserID"] != null)
-            {
-                return RedirectToAction("../Example/Index");
-            }
-            else
-            {
-                return View();
-            }
+            return View();
         }
 
         /// <summary>
@@ -30,9 +20,7 @@ namespace HowToSendEmail.Controllers
         /// <returns>TRUE - Ha sikeres; False - Ha sikertelen</returns>
         public JsonResult SendEmailToUser()
         {
-            bool result = false;
-            
-            result = SendEmail();
+            bool result = SendEmail();
 
             return Json(result, JsonRequestBehavior.AllowGet);
         }
@@ -49,13 +37,11 @@ namespace HowToSendEmail.Controllers
             {
                 SmtpClient client = CreateSmtpClient(emailProperties);
 
-                /// Üzenet elküldése az SMTP Kliens használatával, amely egy reprezentált
-                /// e-mail üzenetet küld el (MailMessage)
                 client.Send(CreateMailMessage(emailProperties));
 
                 return true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine("\n\n" + ex);
 
@@ -73,15 +59,12 @@ namespace HowToSendEmail.Controllers
         /// <returns>Egy elkészített SMTP Kliens amely az üzenetküldéshez szükséges</returns>
         private SmtpClient CreateSmtpClient(EmailProperties emailProperties)
         {
-            /// Kiszolgáló és Port beállítása, amelyet az üzenetküldő szolgáltatás biztosít.
-            /// (Használt SMTP Kiszolgáló a Gmail)
             return new SmtpClient(emailProperties.SMTPHost, emailProperties.SMTPPort)
             {
                 EnableSsl = true,
                 Timeout = 10000,
                 DeliveryMethod = SmtpDeliveryMethod.Network,
-                UseDefaultCredentials = false,      
-                /// Hitelesítési adatok beállítása: A Küldő Email címe és Küldő Email címének jelszava
+                UseDefaultCredentials = false,
                 Credentials = new NetworkCredential(emailProperties.SenderEmailAdress, emailProperties.SenderEmailPassword)
             };
         }
