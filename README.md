@@ -13,25 +13,31 @@ About the application technologies and operation:
 
 ### Installation/ Configuration:
 
-1. Open CMD and Create a new **SQLLocalDB Instance** named **LocalDBExample**
+1. Restore necessary Packages on the selected project, run the following command in **PM Console**
+
+   ```
+   Update-Package -reinstall
+   ```
+   
+2. Open CMD and Create a new **SQLLocalDB Instance** named **LocalDBExample**
 
    ```
    SQLLocalDB create LocalDBExample
    ```
 
-2. Connect to **LocalDBExample Instance** with **Windows Authentication**
+3. Connect to **LocalDBExample Instance** with **Windows Authentication**
 
    ```
    (LocalDB)\LocalDBExample
    ```
    
-3. **CREATE** necessary **DATABASE** with the following **SCRIPT**
+4. **CREATE** necessary **DATABASE** with the following **SCRIPT**
 
    ```SQL
    CREATE DATABASE EmployeesDB;
    ```
    
-4. **CREATE** necessary **TABLES** with the following **SCRIPT** (The scripts can be found in the following folder: **DB TABLES**)
+5. **CREATE** necessary **TABLES** with the following **SCRIPT** (The scripts can be found in the following folder: **DB TABLES**)
 
    ```SQL
    USE EmployeesDB;
@@ -99,7 +105,7 @@ About the application technologies and operation:
    );
    ```
    
-5. In the Web.config file, configure the data needed to use the Email Service (from **43_HowToSendEmail** Project)
+6. In the Web.config file, configure the data needed to use the Email Service (from **43_HowToSendEmail** Project)
 
    ```XML
    <add key="SenderEmail" value="testemail@test.com" />
